@@ -1,0 +1,10 @@
+@extends('layouts.master')
+@section('body')
+    {!! Form::open() !!}
+    @include('widgets.form._formitem_text', ['name' => 'email', 'title' => 'Email', 'placeholder' => 'Введите Email' ])
+    @include('widgets.form._formitem_password', ['name' => 'password', 'title' => 'Пароль', 'placeholder' => 'Пароль' ])
+    @include('widgets.form._formitem_checkbox', ['name' => 'remember', 'title' => 'Запомнить меня'] )
+    @include('widgets.form._formitem_btn_submit', ['title' => 'Отправить'])
+    {!! Form::close() !!}
+    <p><a href="{{URL::to('/reset')}}">Забыли пароль?</a></p>
+@stop

@@ -1,0 +1,371 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+$fa-font-path: "/fonts/fontawesome";
+
+@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+@import "node_modules/font-awesome/scss/font-awesome.scss";
+
+@font-face {
+  font-family: Bip;
+  src: url('/fonts/bip_regular.ttf');
+}
+
+@font-face {
+  font-family: Artemon;
+  src: url('/fonts/Artemon.ttf');
+}
+@font-face {
+  font-family: Domino;
+  src: url('/fonts/adomino_bold.ttf');
+}
+@font-face {
+  font-family: Granit;
+  src: url('/fonts/granit_rus.ttf');
+}
+@font-face {
+  font-family: Mail;
+  src: url('/fonts/mail_ray_stuff_regular.ttf');
+}
+@font-face {
+  font-family: Sumkin;
+  src: url('/fonts/sumkin_freetype.otf');
+}
+@font-face {
+  font-family: Artist;
+  src: url('/fonts/artist_nouveau.ttf');
+}
+@font-face {
+  font-family: Brava;
+  src: url('/fonts/brava_regular.otf');
+}
+@font-face {
+  font-family: Comic;
+  src: url('/fonts/comic_sans_ms_bold.ttf');
+}
+body{
+  padding-top: 50px;
+  background: #F8F8FF;
+}
+
+.navbar{
+  background: rgba(231, 76, 60, 1.0);
+  min-height: 20px !important;
+  height: 30px !important;
+  border: none;
+}
+
+footer{
+  background: rgba(231, 76, 60, 1.0);
+  height: 100px;
+  margin-top: -5px;
+}
+
+#clouds{
+  path{
+    fill: #E74C3C;
+    stroke: #E74C3C;
+  }
+}
+
+.logo{
+  img{
+    display: block;
+    margin: 0 auto;
+  }
+}
+
+.menuContainer{
+  position: relative;
+  height: 152px;
+  section{
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    table {
+      width: 100%;
+      td {
+        text-align: center;
+        font-size: 1.5em;
+        height: 80px;
+        i::before {
+          display: block;
+        }
+        i {
+          text-shadow: 1px 1px 1px #000;
+          span {
+            font-family: Bip;
+          }
+        }
+      }
+
+      td:first-child {
+        a {
+          color: red;
+        }
+      }
+      td:first-child:hover {
+        transition: 1s;
+        background: red;
+        a {
+          color: white;
+        }
+      }
+      td:first-child.active {
+        background: red;
+        a {
+          color: white;
+        }
+      }
+
+      td:nth-child(2) {
+        a {
+          color: orange;
+        }
+      }
+      td:nth-child(2):hover {
+        transition: 1s;
+        background: orange;
+        a {
+          color: white;
+        }
+      }
+      td:nth-child(2).active {
+        background: orange;
+        a {
+          color: white;
+        }
+      }
+
+      td:nth-child(3) {
+        a {
+          color: #FFEE2B;
+        }
+      }
+      td:nth-child(3):hover {
+        transition: 1s;
+        background: #FFEE2B;
+        a {
+          color: white;
+        }
+      }
+      td:nth-child(3).active {
+        background: #FFEE2B;
+        a {
+          color: white;
+        }
+      }
+
+      td:nth-child(4) {
+        a {
+          color: lawngreen;
+        }
+      }
+      td:nth-child(4):hover {
+        transition: 1s;
+        background: lawngreen;
+        a {
+          color: white;
+        }
+      }
+      td:nth-child(4).active {
+        background: lawngreen;
+        a {
+          color: white;
+        }
+      }
+
+      td:nth-child(5) {
+        a {
+          color: #49A9E3;
+        }
+      }
+      td:nth-child(5):hover {
+        transition: 1s;
+        background: #49A9E3;
+        a {
+          color: white;
+        }
+      }
+      td:nth-child(5).active {
+        background: #49A9E3;
+        a {
+          color: white;
+        }
+      }
+
+      td:nth-child(6) {
+        a {
+          color: #005AA9;
+        }
+      }
+      td:nth-child(6):hover {
+        transition: 1s;
+        background: #005AA9;
+        a {
+          color: white;
+        }
+      }
+      td:nth-child(6).active {
+        background: #005AA9;
+        a {
+          color: white;
+        }
+      }
+
+      td:nth-child(7) {
+        a {
+          color: purple;
+        }
+      }
+      td:nth-child(7):hover {
+        transition: 1s;
+        background: purple;
+        a {
+          color: white;
+        }
+      }
+      td:nth-child(7).active {
+        background: purple;
+        a {
+          color: white;
+        }
+      }
+      td:nth-child(8) {
+        a {
+          color: purple;
+        }
+      }
+      td:nth-child(8):hover {
+        transition: 1s;
+        background: purple;
+        a {
+          color: white;
+        }
+      }
+      td:nth-child(8).active {
+        background: purple;
+        a {
+          color: white;
+        }
+      }
+    }
+  }
+}
+/**
+*
+* Horizontal before and after text lines BEGIN
+*
+**/
+h1.line {
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+  text-align: center;
+
+  font: 1.6em/1.1 Comic;
+  padding: .2em 0;
+  text-shadow: 0 1px rgba(255,255,255,.6);
+}
+h1.line:before,
+h1.line:after {
+  content: "";
+  position: relative;
+  display: inline-block;
+  width: 50%;
+  height: 2px;
+
+  vertical-align: middle;
+  background: #000;
+  background-clip: content-box;
+  border-bottom: 1px solid rgba(255,255,255,.5);
+}
+h1.line:before {
+  left: -.5em;
+  margin: 0 0 0 -50%;
+}
+h1.line:after {
+  left: .5em;
+  margin: 0 -50% 0 0;
+}
+h1.line>span {
+  display: inline-block;
+  vertical-align: middle;
+  white-space: normal;
+}
+h1.line.red:before,
+h1.line.red:after{
+  background: red;
+}
+h1.line.orange:before,
+h1.line.orange:after{
+  background: orange;
+}
+h1.line.yellow:before,
+h1.line.yellow:after{
+  background: yellow;
+}
+h1.line.green:before,
+h1.line.green:after{
+  background: lawngreen;
+}
+h1.line.lblue:before,
+h1.line.lblue:after{
+  background: #49A9E3;
+}
+h1.line.blue:before,
+h1.line.blue:after{
+  background: #005AA9;
+}
+h1.line.purple:before,
+h1.line.purple:after{
+  background: purple;
+}
+h1.line.pink:before,
+h1.line.pink:after{
+  background: deeppink;
+}
+/**
+*
+* END
+*
+**/
+
+.item{
+  margin-top: 25px;
+  .nav{
+    table{
+      width: 100%;
+      td{
+        text-align: center;
+        font-size: 1.2em;
+        height: 30px;
+        a{
+          display: block;
+          width: 100%;
+        }
+      }
+    }
+  }
+  h4{
+    position: relative;
+    span{
+      position: absolute;
+      right: 0;
+    }
+  }
+}
+.clearfix:before,
+.clearfix:after {
+    content: "";
+    display: table;
+  }
+
+.clearfix:after {
+  clear: both;
+}
+
+.clearfix {
+  zoom: 1; /* ie 6/7 */
+}
