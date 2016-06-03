@@ -37,15 +37,27 @@
     <div class="container">
         <div class="row">
 
-            <div class="col-md-4">
+            <div class="col-md-3">
                 <a href="/">
                     <div class="logo">
                         <img src="{{URL::asset('images/logo/logo.png')}}" alt="" width="300">
                     </div>
                 </a>
             </div>
-            <div class="col-md-8 menuContainer">
+            <div class="col-md-9 menuContainer">
                 <section>
+                    <div class="cart-search-line">
+                        <div class="row">
+                            <div class="col-md-4"></div>
+                            <div class="col-md-6"></div>
+                            <div class="col-md-2">
+                                <div class="cart">
+                                    <a href=""><i class="fa fa-shopping-basket"><span class="badge cart-badge">3</span></i></a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
                     <div class="menu">
                         <nav>
                             <table>
