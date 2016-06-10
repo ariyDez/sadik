@@ -30,7 +30,7 @@ class Role extends EloquentRole
         $this->permits()->attach($permits);
     }
 
-    public function getPermitsAttribute($permits)
+    public function getPermitsAttribute()
     {
         return array_pluck($this->permits()->get()->toArray(), 'id');
     }

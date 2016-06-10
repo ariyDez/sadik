@@ -22,7 +22,7 @@ Admin::model('App\Good')->title('Товары')->display(function ()
 			FormItem::text('price', 'Price'),
 			FormItem::image('image', 'Image'),
 			FormItem::ckeditor('description', 'Description'),
-			FormItem::select('category_id')->model('App\GoodCategory')->label('Категория'),
+			FormItem::select('good_category_id')->model('App\GoodCategory')->label('Категория'),
 		],
 		'Meta штуки' => [
 			FormItem::text('meta-head', 'Meta Head'),
