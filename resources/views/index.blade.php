@@ -33,7 +33,7 @@
                                 <table>
                                     <tr>
                                         <td><a href="#"><i class="fa fa-shopping-cart"></i></a></td>
-                                        <td><a href="#"><i class="fa fa-shopping-cart"></i></a></td>
+                                        <td><a href="#"><i class="fa fa-paint-brush"></i></a></td>
                                         <td><a href="#"><i class="fa fa-shopping-cart"></i></a></td>
                                         <td><a href="#"><i class="fa fa-shopping-cart"></i></a></td>
                                     </tr>
@@ -129,10 +129,10 @@
             </div>
             <div class="col-md-9">
                 <h1 class="line orange">Игрушки</h1>
-                @for($i=0; $i<6; $i++)
+                @foreach($toys as $toy)
                     <div class="col-md-4">
                         <div class="item">
-                            <img src="/images/foo/teddy.png" alt="" width="100%" height="250">
+                            <img src="{{$toy->image}}" alt="" width="100%" height="250">
                             <div class="nav">
                                 <table>
                                     <tr>
@@ -143,10 +143,28 @@
                                     </tr>
                                 </table>
                             </div>
-                            <h4>sdfsdf<span>500 сом</span></h4>
+                            <h4>{{$toy->title}}<span>{{$toy->price}} сом</span></h4>
                         </div>
                     </div>
-                @endfor
+                @endforeach
+                {{--@for($i=0; $i<6; $i++)--}}
+                    {{--<div class="col-md-4">--}}
+                        {{--<div class="item">--}}
+                            {{--<img src="/images/foo/teddy.png" alt="" width="100%" height="250">--}}
+                            {{--<div class="nav">--}}
+                                {{--<table>--}}
+                                    {{--<tr>--}}
+                                        {{--<td><a href="#"><i class="fa fa-shopping-cart"></i></a></td>--}}
+                                        {{--<td><a href="#"><i class="fa fa-shopping-cart"></i></a></td>--}}
+                                        {{--<td><a href="#"><i class="fa fa-shopping-cart"></i></a></td>--}}
+                                        {{--<td><a href="#"><i class="fa fa-shopping-cart"></i></a></td>--}}
+                                    {{--</tr>--}}
+                                {{--</table>--}}
+                            {{--</div>--}}
+                            {{--<h4>sdfsdf<span>500 сом</span></h4>--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
+                {{--@endfor--}}
                 <div class="clearfix"></div>
                 <h1 class="line blue">Секции</h1>
                 @for($i=0; $i<8; $i++)

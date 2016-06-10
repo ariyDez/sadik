@@ -37,7 +37,7 @@ class User extends EloquentUser
         $this->theroles()->attach($roles);
     }
 
-    public function getTherolesAttribute($roles)
+    public function getTherolesAttribute()
     {
         return array_pluck($this->theroles()->get(['id']), 'id');
     }

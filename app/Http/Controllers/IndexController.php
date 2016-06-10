@@ -16,13 +16,15 @@ class IndexController extends Controller
     public function index()
     {
         $gardens = Garden::all();
-        $goodCategory = GoodCategory::where('slug', 'clothes')->firstOrFail();
+        $clothes = GoodCategory::where('slug', 'clothes')->firstOrFail();
+        $toy     = GoodCategory::where('slug', 'toys')->firstOrFail(); 
         //dd($goodCategory);
-        $goods = $goodCategory->goods;
+        $goods = $clothes->goods;
+        $toys  = $toy->goods;
         //$goods   = Good::();
         $movies  = Movie::all();
         $blogs   = Blog::all();
         //$errors  = 'wtf';
-        return view('index', compact('gardens', 'movies', 'blogs', 'goods','errors'));
+        return view('index', compact('gardens', 'movies', 'blogs', 'goods','toys', 'errors'));
     }
 }

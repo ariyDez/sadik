@@ -21,7 +21,8 @@ Admin::model('App\Garden')->title('Садики')->display(function ()
 		Column::string('title')->label('Название'),
 		Column::image('image')->label('Картинка'),
 		Column::string('district.title')->label('Район'),
-		Column::string('type.title')->label('Тип')
+		Column::string('type.title')->label('Тип'),
+		Column::string('user.first_name')->label('Пользователь')
 	]);
 	return $display;
 })->createAndEdit(function ($id)
