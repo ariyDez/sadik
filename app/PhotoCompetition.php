@@ -12,9 +12,25 @@ class PhotoCompetition extends Model
     {
         return $this->belongsTo('App\User');
     }
+
+    public function setUserAttribute($user)
+    {
+        $this->user()->dissociate();
+        if( !$user) return;
+        if( !$this->exists) $this->save();
+        $this->user()->associate($user);
+    }
     
     public function competition()
     {
         return $this->belongsTo('App\Competition');
+    }
+
+    public function setCompetitionAttribute($competition)
+    {
+        $this->competition()->dissociate();
+        if( !$competition) return;
+        if( !$this->exists) $this->save();
+        $this->competition()->associate($competition);
     }
 }

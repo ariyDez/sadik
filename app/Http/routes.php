@@ -82,7 +82,12 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('movies/{id}', 'MovieController@show');
     
     Route::get('goods/{id}', 'GoodController@show');
+    
+    Route::get('join', 'PhotoCompetitionController@showJoin');
+    Route::post('/competition/join', 'PhotoCompetitionController@joinProcess');
+    //Route::get('join', ['middleware'=>'isadmin', 'uses' => 'PhotoCompetitionController@showJoin']);
 
     // only test
     Route::get('test', 'TestController@test');
+    Route::get('image', 'TestController@image');
 });
