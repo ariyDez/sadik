@@ -80,6 +80,8 @@ Route::group(['middleware' => ['web']], function () {
 
     Route::get('movies', 'MovieController@index');
     Route::get('movies/{id}', 'MovieController@show');
+    
+    Route::get('goods/{id}', 'GoodController@show');
 
     // only test
     Route::get('test', 'TestController@test');

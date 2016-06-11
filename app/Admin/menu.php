@@ -28,4 +28,5 @@ Admin::menu()->label('Мультимедиа')->icon('fa-folder')->items(functio
 Admin::menu()->label('Товары')->icon('fa-shopping-cart')->items(function(){
     Admin::menu(App\GoodCategory::class)->label('Категории')->icon('fa-bars');
     Admin::menu(App\Good::class)->label('Товары')->icon('fa-money');
+    Admin::menu(App\Order::class)->label('Заказы')->icon('fa-usd');
 });

@@ -22,13 +22,12 @@
                         {{--</div>--}}
                     {{--@endfor--}}
                 </div>
-                <div class="col-md-12">
-                    <h1 class="line yellow">Одежда</h1>
-                </div>
+                <div class="clearfix"></div>
+                <h1 class="line yellow">Одежда</h1>
                 @foreach($goods as $good)
                     <div class="col-md-4">
                         <div class="item">
-                            <img src="{{$good->image}}" alt="" width="100%" height="250">
+                            <a href="{{action('GoodController@show', $good->id)}}"><img src="{{$good->image}}" alt="" width="100%" height="250"></a>
                             <div class="nav">
                                 <table>
                                     <tr>
@@ -43,6 +42,26 @@
                         </div>
                     </div>
                 @endforeach;
+                <div class="clearfix"></div>
+                <h1 class="line orange">Игрушки</h1>
+                @foreach($toys as $toy)
+                    <div class="col-md-4">
+                        <div class="item">
+                            <img src="{{$toy->image}}" alt="" width="100%" height="250">
+                            <div class="nav">
+                                <table>
+                                    <tr>
+                                        <td><a href="#"><i class="fa fa-shopping-cart"></i></a></td>
+                                        <td><a href="#"><i class="fa fa-shopping-cart"></i></a></td>
+                                        <td><a href="#"><i class="fa fa-shopping-cart"></i></a></td>
+                                        <td><a href="#"><i class="fa fa-shopping-cart"></i></a></td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <h4>{{$toy->title}}<span>{{$toy->price}} сом</span></h4>
+                        </div>
+                    </div>
+                @endforeach
                 {{--@for($i=0; $i<6; $i++)--}}
                     {{--<div class="col-md-4">--}}
                         {{--<div class="item">--}}
@@ -97,7 +116,7 @@
             </div>
             <div class="clearfix"></div>
             <div class="col-md-3">
-                <img src="/images/foo/3.jpg" alt="" width="100%">
+                <img src="/images/foo/6.jpg" alt="" width="100%">
                 <h1 class="line lblue">Конкурсы</h1>
                 @for($i=0;$i<3;$i++)
                     <div class="media">
@@ -128,25 +147,6 @@
                 @endfor
             </div>
             <div class="col-md-9">
-                <h1 class="line orange">Игрушки</h1>
-                @foreach($toys as $toy)
-                    <div class="col-md-4">
-                        <div class="item">
-                            <img src="{{$toy->image}}" alt="" width="100%" height="250">
-                            <div class="nav">
-                                <table>
-                                    <tr>
-                                        <td><a href="#"><i class="fa fa-shopping-cart"></i></a></td>
-                                        <td><a href="#"><i class="fa fa-shopping-cart"></i></a></td>
-                                        <td><a href="#"><i class="fa fa-shopping-cart"></i></a></td>
-                                        <td><a href="#"><i class="fa fa-shopping-cart"></i></a></td>
-                                    </tr>
-                                </table>
-                            </div>
-                            <h4>{{$toy->title}}<span>{{$toy->price}} сом</span></h4>
-                        </div>
-                    </div>
-                @endforeach
                 {{--@for($i=0; $i<6; $i++)--}}
                     {{--<div class="col-md-4">--}}
                         {{--<div class="item">--}}
@@ -165,7 +165,6 @@
                         {{--</div>--}}
                     {{--</div>--}}
                 {{--@endfor--}}
-                <div class="clearfix"></div>
                 <h1 class="line blue">Секции</h1>
                 @for($i=0; $i<8; $i++)
                     <div class="col-md-3">
