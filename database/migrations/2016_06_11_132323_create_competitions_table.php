@@ -12,10 +12,11 @@ class CreateCompetitionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('competitions', function (Blueprint $table) {
+        Schema::create('competitions', function(Blueprint $table){
             $table->increments('id');
             $table->string('title');
-            $table->text('description');
+            $table->string('image');
+            $table->string('desc');
             $table->timestamp('started_at');
             $table->timestamp('finished_at');
             $table->timestamps();

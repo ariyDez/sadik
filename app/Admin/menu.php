@@ -30,3 +30,7 @@ Admin::menu()->label('Товары')->icon('fa-shopping-cart')->items(function()
     Admin::menu(App\Good::class)->label('Товары')->icon('fa-money');
     Admin::menu(App\Order::class)->label('Заказы')->icon('fa-usd');
 });
+Admin::menu()->label('Конкурсы')->icon('fa-shopping-cart')->items(function(){
+    Admin::menu(App\Competition::class)->label('Конкурсы')->icon('fa-trophy');
+    Admin::menu(App\PhotoCompetition::class)->label('Конкурсы')->icon('fa-image');
+});

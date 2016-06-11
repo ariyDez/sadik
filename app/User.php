@@ -46,4 +46,9 @@ class User extends EloquentUser
     {
         return $this->hasMany('App\Garden');
     }
+
+    public function photoCompetitions()
+    {
+        return $this->hasMany('App\PhotoCompetition');
+    }
 }
