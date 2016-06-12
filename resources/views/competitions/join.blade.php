@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('body')
-    <form enctype="multipart/form-data"action="/competition/join" method="post" data>
+    <form enctype="multipart/form-data"action="/competitions/{{$competition->id}}/joinProcess" method="post" data>
         {{csrf_field()}}
         <input type="file" name="image">
         <input type="submit" value="send">

@@ -14,6 +14,8 @@ class Kernel extends ConsoleKernel
      */
     protected $commands = [
         // Commands\Inspire::class,
+        //Commands\CheckCompetition::class,
+        'App\Console\Commands\CheckCompetition',
     ];
 
     /**
@@ -26,5 +28,6 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('inspire')
         //          ->hourly();
+        $schedule->command('competition:check')->everyMinute()->sendOutputTo('schedule_logs.log');
     }
 }

@@ -62,24 +62,6 @@
                         </div>
                     </div>
                 @endforeach
-                {{--@for($i=0; $i<6; $i++)--}}
-                    {{--<div class="col-md-4">--}}
-                        {{--<div class="item">--}}
-                            {{--<img src="/images/foo/clothes.png" alt="" width="100%" height="250">--}}
-                            {{--<div class="nav">--}}
-                                {{--<table>--}}
-                                    {{--<tr>--}}
-                                        {{--<td><a href="#"><i class="fa fa-shopping-cart"></i></a></td>--}}
-                                        {{--<td><a href="#"><i class="fa fa-shopping-cart"></i></a></td>--}}
-                                        {{--<td><a href="#"><i class="fa fa-shopping-cart"></i></a></td>--}}
-                                        {{--<td><a href="#"><i class="fa fa-shopping-cart"></i></a></td>--}}
-                                    {{--</tr>--}}
-                                {{--</table>--}}
-                            {{--</div>--}}
-                            {{--<h4>sdfsdf<span>500 сом</span></h4>--}}
-                        {{--</div>--}}
-                    {{--</div>--}}
-                {{--@endfor--}}
 
             </div>
             <div class="col-md-3">
@@ -118,19 +100,19 @@
             <div class="col-md-3">
                 <img src="/images/foo/6.jpg" alt="" width="100%">
                 <h1 class="line lblue">Конкурсы</h1>
-                @for($i=0;$i<3;$i++)
+                @foreach($competitions as $competition)
                     <div class="media">
-                        <div class="media-left media-top">
-                            <a href="">
-                                <img class="media-object" src="/images/foo/konkurs.png" alt="" width="100" height="100">
-                            </a>
-                        </div>
-                        <div class="media-body">
-                            <h4 class="media-heading">Bla-bla-bla</h4>
-                            Nulla quis lorem ut libero malesuada feugiat.
-                        </div>
+                        <a href="{{action('CompetitionController@show', $competition->id)}}">
+                            <div class="media-left media-top">
+                                <img class="media-object" src="{{$competition->image}}" alt="" width="100" height="100">
+                            </div>
+                            <div class="media-body">
+                                <h4 class="media-heading">{{$competition->title}}</h4>
+                                {!! $competition->desc !!}
+                            </div>
+                        </a>
                     </div>
-                @endfor
+                @endforeach
                 <h1 class="line purple">Блог</h1>
                 @for($i=0;$i<3;$i++)
                     <div class="media">
@@ -147,24 +129,6 @@
                 @endfor
             </div>
             <div class="col-md-9">
-                {{--@for($i=0; $i<6; $i++)--}}
-                    {{--<div class="col-md-4">--}}
-                        {{--<div class="item">--}}
-                            {{--<img src="/images/foo/teddy.png" alt="" width="100%" height="250">--}}
-                            {{--<div class="nav">--}}
-                                {{--<table>--}}
-                                    {{--<tr>--}}
-                                        {{--<td><a href="#"><i class="fa fa-shopping-cart"></i></a></td>--}}
-                                        {{--<td><a href="#"><i class="fa fa-shopping-cart"></i></a></td>--}}
-                                        {{--<td><a href="#"><i class="fa fa-shopping-cart"></i></a></td>--}}
-                                        {{--<td><a href="#"><i class="fa fa-shopping-cart"></i></a></td>--}}
-                                    {{--</tr>--}}
-                                {{--</table>--}}
-                            {{--</div>--}}
-                            {{--<h4>sdfsdf<span>500 сом</span></h4>--}}
-                        {{--</div>--}}
-                    {{--</div>--}}
-                {{--@endfor--}}
                 <h1 class="line blue">Секции</h1>
                 @for($i=0; $i<8; $i++)
                     <div class="col-md-3">
