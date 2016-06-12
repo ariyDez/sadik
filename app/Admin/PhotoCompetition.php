@@ -10,10 +10,10 @@ Admin::model('App\PhotoCompetition')->title('Photo')->display(function ()
 	]);
 	$display->columns([
 		Column::string('title')->label('Title'),
-		Column::string('image')->label('Image'),
-		Column::string('desc')->label('Desc'),
+		Column::image('image')->label('Image'),
 		Column::string('user.email')->label('User')->append(Column::filter('user_id')),
 		Column::string('competition.title')->label('Competition')->append(Column::filter('competition_id')),
+		Column::string('likes')->label('Лайки')
 	]);
 	return $display;
 })->createAndEdit(function ()
@@ -22,5 +22,5 @@ Admin::model('App\PhotoCompetition')->title('Photo')->display(function ()
 	$form->items([
 
 	]);
-	return $form;
+	return null;
 });

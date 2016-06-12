@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Competition;
 use App\PhotoCompetition;
 use Illuminate\Http\Request;
 
@@ -28,15 +29,15 @@ class PhotoCompetitionController extends Controller
     {
         $image = $request->file('image');
         $filename  = md5(time() . $image->getClientOriginalName()). '.' . $image->getClientOriginalExtension();
-        $path = public_path("images/uploads" . $filename);
+        $path = "images/uploads/" . $filename;
         $fullpath = public_path('images/uploads');
         //$image->move($fullpath, $filename);
         //Image::make($image->getRealPath())->resize(200, 200)->save($path);
         $photoCompetition = new PhotoCompetition();
-        $photoCompetition->image = $image;
+        $photoCompetition->image = $path;
         //dd(User::find(Sentinel::getUser()->id));
         $photoCompetition->user_id = Sentinel::getUser()->id;
-
+        $photoCompetition->competition_id = 1;
         $photoCompetition->title = "bla-bla";
         $photoCompetition->desc = "sdfsdfsd";
         $photoCompetition->save();

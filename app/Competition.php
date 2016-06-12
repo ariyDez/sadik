@@ -12,4 +12,9 @@ class Competition extends Model
     {
         return $this->hasMany('App\PhotoCompetition');
     }
+    
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
 }

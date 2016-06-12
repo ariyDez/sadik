@@ -51,4 +51,9 @@ class User extends EloquentUser
     {
         return $this->hasMany('App\PhotoCompetition');
     }
+    
+    public function competitioins()
+    {
+        return $this->hasMany('App\Competition');
+    }
 }
