@@ -10,6 +10,22 @@
             <div class="col-md-4">
                 <div>Район: {{$garden->district->title}}</div>
                 <div>Тип: {{$garden->type->title}}</div>
+                <div>
+                    Общее количество мест: {{$garden->seats}}
+                    <div class="seats">
+                        @for($i=1; $i<=$garden->engaged; $i++)
+                            <i class="fa fa-child engaged"></i>
+                        @endfor
+                    </div>
+                    <div class="seats">
+                        @for($i=1; $i<=2; $i++)
+                            <i class="fa fa-child reserved"></i>
+                        @endfor
+                        @for($i=1; $i<=$garden->seats-$garden->engaged-2; $i++)
+                            <i class="fa fa-child free"></i>
+                        @endfor
+                    </div>
+                </div>
             </div>
             <div class="clearfix"></div>
             <h1 class="line red">Воспитатели</h1>

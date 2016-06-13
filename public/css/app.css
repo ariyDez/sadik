@@ -3,6 +3,10 @@
   margin: 0;
   padding: 0; }
 
+body, html {
+  width: 100%;
+  height: 100%; }
+
 /*!
  * Bootstrap v3.3.6 (http://getbootstrap.com)
  * Copyright 2011-2015 Twitter, Inc.
@@ -8193,5 +8197,27 @@ h1.line.pink:after {
     background: #005aa9;
     margin-bottom: -30px;
     border-radius: 50% 50%; }
+
+.seats {
+  font-size: 1.5em; }
+  .seats .engaged {
+    color: purple; }
+  .seats .free {
+    color: lawngreen; }
+  .seats .reserved {
+    color: red; }
+
+.map-container {
+  position: relative; }
+  .map-container #map {
+    width: 100%;
+    height: 500px; }
+  .map-container .map-panel {
+    position: absolute;
+    width: 350px;
+    height: 425px;
+    background: #fff;
+    top: 110px;
+    right: -90px; }
 
 /*# sourceMappingURL=app.css.map */

@@ -73,6 +73,7 @@ Route::group(['middleware' => ['web']], function () {
     
     Route::get('gardens', 'GardenController@index');
     Route::get('gardens/{id}', 'GardenController@show');
+    Route::post('gardens/api/get', 'GardenController@getList');
 
     Route::get('toys', 'ToyController@index');
     Route::get('toys/{id}', 'ToyController@show');

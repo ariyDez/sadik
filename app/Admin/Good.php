@@ -42,17 +42,17 @@ Admin::model('App\Good')->title('Товары')->display(function ()
 	else
 		$form->items([
 			'Main Tab' => [
-				FormItem::text('title', 'Title'),
-				FormItem::text('price', 'Price'),
-				FormItem::image('image', 'Image'),
+				FormItem::text('title', 'Заголовок'),
+				FormItem::text('price', 'Цена'),
+				FormItem::image('image', 'Изображение'),
 				FormItem::hidden('user_id', Sentinel::check()->getUserId()),
-				FormItem::ckeditor('description', 'Description'),
+				FormItem::ckeditor('description', 'Описание'),
 				FormItem::select('good_category_id')->model('App\GoodCategory')->label('Категория'),
 			],
-			'Meta штуки' => [
-				FormItem::text('meta-head', 'Meta Head'),
-				FormItem::text('meta-keyw', 'Meta Keyw'),
-				FormItem::textarea('meta-desc', 'Meta Desc'),
+			'SEO' => [
+				FormItem::text('meta-head', 'Meta Заголовок'),
+				FormItem::text('meta-keyw', 'Meta Ключевые слова'),
+				FormItem::textarea('meta-desc', 'Meta Описание'),
 			]
 		]);
 	return $form;
