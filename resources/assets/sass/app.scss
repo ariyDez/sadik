@@ -414,12 +414,19 @@ h1.line.pink:after{
     height: 500px;
   }
   .map-panel{
+    overflow-y: auto;
     position: absolute;
-    width: 350px;
+    width: 250px;
     height: 425px;
     background: #fff;
     top: 110px;
-    right: -90px;
+    left: -80px;
+    opacity: 0.5;
+    transition: 1s;
+  }
+
+  .map-panel:hover{
+    opacity: 1;
   }
 }
 

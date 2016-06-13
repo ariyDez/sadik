@@ -24,7 +24,7 @@ class GardenController extends AbstractController
         return view('gardens.show', compact('garden', 'teachers', 'sections'));
     }
 
-    public function getList(Request $request)
+    public function getFilteredList(Request $request)
     {
         $latitudes = $request->input('latitude');
         $longitudes = $request->input('longitude');
@@ -35,5 +35,24 @@ class GardenController extends AbstractController
             $gardens[$i] = $garden;
         }
         return response()->json($gardens);
+    }
+    
+    public function getList(Request $request)
+    {
+        $gardens = Garden::all();
+        $maps = [];
+        foreach ($gardens as $garden)
+        {
+            $point = [
+                'type' => 'Feature',
+                'id'   => $garden->id,
+                'geometry' => [
+                    'type' => 'Point',
+                    'coordinates' => [$garden->latitude, $garden->longitude]
+                ]
+            ];
+            $maps[] = $point;
+        }
+        return response()->json($maps);
     }
 }

@@ -28,27 +28,31 @@
                 </div>
             </div>
             <div class="clearfix"></div>
-            <h1 class="line red">Воспитатели</h1>
-            @foreach($teachers as $teacher)
-                <div class="col-md-4">
-                    <img src="/{{$teacher->image}}" alt="" width="300" height="250">
-                    <div>
-                        <div>Name: {{$teacher->name}}</div>
-                        <div>Role: {{$teacher->position}}</div>
+            @if(count($teachers) > 0)
+                <h1 class="line red">Воспитатели</h1>
+                @foreach($teachers as $teacher)
+                    <div class="col-md-4">
+                        <img src="/{{$teacher->image}}" alt="" width="300" height="250">
+                        <div>
+                            <div>Name: {{$teacher->name}}</div>
+                            <div>Role: {{$teacher->position}}</div>
+                        </div>
                     </div>
-                </div>
-            @endforeach
-            <div class="clearfix"></div>
-            <h1 class="line red">Кружки</h1>
-            @foreach($sections as $section)
-                <div class="col-md-4">
-                    <img src="/{{$section->image}}" alt="" width="300" height="250">
-                    <div>
-                        <div>Title: {{$section->title}}</div>
-                        <div>Info: {!! $section->info !!}</div>
+                @endforeach
+                <div class="clearfix"></div>
+            @endif
+            @if(count($sections) > 0)
+                <h1 class="line red">Кружки</h1>
+                @foreach($sections as $section)
+                    <div class="col-md-4">
+                        <img src="/{{$section->image}}" alt="" width="300" height="250">
+                        <div>
+                            <div>Title: {{$section->title}}</div>
+                            <div>Info: {!! $section->info !!}</div>
+                        </div>
                     </div>
-                </div>
-            @endforeach
+                @endforeach
+            @endif
         </div>
     </div>
 
