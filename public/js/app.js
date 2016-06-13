@@ -12185,11 +12185,22 @@ return jQuery;
 window.$ = window.jQuery = require('jquery');
 require('bootstrap-sass');
 
-$(document).ready(function () {
+$(function () {
+    var Cart = {
+        deal: 0,
+        add: function add(id) {
+            $.ajax({
+                method: "POST",
+                url: "cart/api/add",
+                data: { 'id': id },
+                success: function success(response) {
+                    alert(response);
+                }
+            });
+        }
+    };
+    console.log(Cart.deal);
     console.log($.fn.tooltip.Constructor.VERSION);
-    [].slice.call(document.querySelectorAll('.tabs')).forEach(function (el) {
-        new CBPFWTabs(el);
-    });
 });
 
 },{"bootstrap-sass":1,"jquery":2}]},{},[3]);

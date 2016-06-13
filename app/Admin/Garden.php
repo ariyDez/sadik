@@ -27,14 +27,25 @@ Admin::model('App\Garden')->title('Садики')->display(function ()
 	return $display;
 })->createAndEdit(function ($id)
 {
-	$form = AdminForm::form();
+	$form = AdminForm::tabbed();
 	if(Sentinel::inRole('admin'))
 		$form->items([
-			FormItem::text('title', 'Title'),
-			FormItem::image('image', 'Image'),
-			FormItem::select('user_id', 'Владелец')->model('App\User')->display('email'),
-			FormItem::select('district_id', 'Районы')->model('App\District')->display('title'),
-			FormItem::select('type_id', 'Тип')->model('App\Type')->display('title'),
+			'Main' => [
+				FormItem::text('title', 'Title'),
+				FormItem::image('image', 'Image'),
+				FormItem::select('user_id', 'Владелец')->model('App\User')->display('email'),
+				FormItem::select('district_id', 'Районы')->model('App\District')->display('title'),
+				FormItem::select('type_id', 'Тип')->model('App\Type')->display('title'),
+				FormItem::text('seats', 'Количество мест'),
+				FormItem::text('engaged', 'Занятые места'),
+				FormItem::ckeditor('info', 'Информация')
+			],
+			'SEO' => [
+				FormItem::text('meta-head', 'Meta Заголовок'),
+				FormItem::text('meta-key', 'Meta Ключевые слова'),
+				FormItem::textarea('meta-desc', 'Meta Описание'),
+			]
+
 		]);
 	else
 		$form->items([

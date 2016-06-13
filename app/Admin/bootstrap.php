@@ -12,4 +12,5 @@
  */
 
 FormItem::register('selection', '\App\Select');
+FormItem::register('color', 'App\ColorItem');
 

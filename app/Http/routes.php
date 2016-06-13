@@ -65,9 +65,20 @@ Route::group(['middleware' => ['web']], function () {
 
     // Сервисная страничка, показываем после заполнения рег формы, формы сброса и т.
     // о том, что письмо отправлено и надо заглянуть в почтовый ящик.
-
-    Route::get('/', 'IndexController@index');
+    
     Route::get('wait', 'AuthController@wait');
+    
+    // mine pages
+    Route::get('/', 'IndexController@index');
+    
+    Route::get('gardens', 'GardenController@index');
+    Route::get('gardens/{id}', 'GardenController@show');
+
+    Route::get('toys', 'ToyController@index');
+    Route::get('toys/{id}', 'ToyController@show');
+
+    Route::get('clothes', 'ClothesController@index');
+    Route::get('clothes/{id}', 'ClothesController@show');
 
     Route::get('articles', 'ArticlesController@index');
     Route::get('articles/{id}', 'ArticlesController@show');
@@ -87,8 +98,12 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('competitions/{id}', 'CompetitionController@show');
     Route::get('competitions/{id}/join', 'CompetitionController@joinShow');
     Route::post('competitions/{id}/joinProcess', 'CompetitionController@joinProcess');
+    Route::get('competitions/{id}/addLike', 'CompetitionController@addLike');
     Route::get('join', 'PhotoCompetitionController@showJoin');
     Route::post('/competition/join', 'PhotoCompetitionController@joinProcess');
+    
+    Route::get('cart/content', 'CartController@content');
+    Route::post('cart/api/add', 'CartController@add');
     //Route::get('join', ['middleware'=>'isadmin', 'uses' => 'PhotoCompetitionController@showJoin']);
 
     // only test

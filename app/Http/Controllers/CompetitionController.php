@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Competition;
 use App\PhotoCompetition;
+use App\Voice;
 use Illuminate\Foundation\Auth\User;
 use Illuminate\Http\Request;
 use Cartalyst\Sentinel\Laravel\Facades\Sentinel;
@@ -54,5 +55,23 @@ class CompetitionController extends Controller
         $photoCompetition->desc = "sdfsdfsd";
         $photoCompetition->save();
         $image->move($fullpath, $filename);
+    }
+
+    public function addLike($id)
+    {
+        $participiant = PhotoCompetition::find($id);
+
+        $voice = Voice::where('user_id', Sentinel::getUser()->id)->where('photo_competition_id', $participiant->id)->get();
+        if(count($voice) == 0)
+        {
+            $voice = new Voice();
+            $voice->user_id = Sentinel::getUser()->id;
+            $voice->photo_competition_id = $participiant->id;
+            $voice->save();
+            $participiant->likes = $participiant->likes+1;
+            $participiant->save();
+        }
+        else
+            return Redirect::back();
     }
 }

@@ -27,10 +27,11 @@ Admin::menu()->label('Мультимедиа')->icon('fa-folder')->items(functio
 
 Admin::menu()->label('Товары')->icon('fa-shopping-cart')->items(function(){
     Admin::menu(App\GoodCategory::class)->label('Категории')->icon('fa-bars');
+    Admin::menu(App\Color::class)->label('Цвета')->icon('fa-bars');
     Admin::menu(App\Good::class)->label('Товары')->icon('fa-money');
     Admin::menu(App\Order::class)->label('Заказы')->icon('fa-usd');
 });
 Admin::menu()->label('Конкурсы')->icon('fa-shopping-cart')->items(function(){
     Admin::menu(App\Competition::class)->label('Конкурсы')->icon('fa-trophy');
-    Admin::menu(App\PhotoCompetition::class)->label('Конкурсы')->icon('fa-image');
+    Admin::menu(App\PhotoCompetition::class)->label('Участники')->icon('fa-image');
 });

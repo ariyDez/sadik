@@ -1,3 +1,6 @@
 <meta charset="utf-8">
+<meta name="_token" content="{{csrf_token()}} ?>">
 <link rel="stylesheet" href="{{URL::asset('css/app.css')}}">
+
 <script src="{{URL::asset('js/app.js')}}"></script>
+<script src="{{URL::asset('js/Cart.js')}}"></script>

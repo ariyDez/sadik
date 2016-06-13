@@ -33,4 +33,9 @@ class PhotoCompetition extends Model
         if( !$this->exists) $this->save();
         $this->competition()->associate($competition);
     }
+    
+    public function voices()
+    {
+        return $this->hasMany('App\Voice');
+    }
 }

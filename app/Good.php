@@ -29,4 +29,8 @@ class Good extends Model
         $this->category()->associate($category);
     }
     
+    public function colors()
+    {
+        return $this->belongsToMany('App\Color');
+    }
 }

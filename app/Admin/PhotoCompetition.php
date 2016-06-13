@@ -1,6 +1,6 @@
 <?php
 
-Admin::model('App\PhotoCompetition')->title('Photo')->display(function ()
+Admin::model('App\PhotoCompetition')->title('Участники')->display(function ()
 {
 	$display = AdminDisplay::datatables();
 	$display->with('user', 'competition');

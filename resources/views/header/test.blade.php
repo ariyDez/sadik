@@ -28,7 +28,7 @@
                             <div class="col-md-6"></div>
                             <div class="col-md-2">
                                 <div class="cart">
-                                    <a href=""><i class="fa fa-shopping-basket"><span class="badge cart-badge">3</span></i></a>
+                                    <a href="/cart/content"><i class="fa fa-shopping-basket"><span class="badge cart-badge">{{Cart::count()}}</span></i></a>
                                 </div>
                             </div>
                         </div>
@@ -38,9 +38,9 @@
                         <nav>
                             <table>
                                 <tr>
-                                    <td class=""><a href="#"><i class="fa fa-cube"><span>Садики</span></i></a></td>
-                                    <td class=""><a href="#"><i class="fa fa-puzzle-piece"><span>Игрушки</span></i></a></td>
-                                    <td class=""><a href="#"><i class="fa fa-shopping-bag"><span>Одежда</span></i></a></td>
+                                    <td class=""><a href="/gardens"><i class="fa fa-cube"><span>Садики</span></i></a></td>
+                                    <td class=""><a href="/toys"><i class="fa fa-puzzle-piece"><span>Игрушки</span></i></a></td>
+                                    <td class=""><a href="/clothes"><i class="fa fa-shopping-bag"><span>Одежда</span></i></a></td>
                                     <td class=""><a href="/movies"><i class="fa fa-film"><span>Видео</span></i></a></td>
                                     <td class=""><a href="/competitions"><i class="fa fa-trophy"><span>Конкурсы</span></i></a></td>
                                     <td class=""><a href="#"><i class="fa fa-newspaper-o"><span>Секции</span></i></a></td>

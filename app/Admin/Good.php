@@ -31,11 +31,12 @@ Admin::model('App\Good')->title('Товары')->display(function ()
 				FormItem::select('user_id')->model('App\User')->display('email'),
 				FormItem::ckeditor('description', 'Description'),
 				FormItem::select('good_category_id')->model('App\GoodCategory')->label('Категория'),
+				FormItem::multiselect('colors', 'Colors')->model('App\Color')->display('key')
 			],
-			'Meta штуки' => [
-				FormItem::text('meta-head', 'Meta Head'),
-				FormItem::text('meta-keyw', 'Meta Keyw'),
-				FormItem::textarea('meta-desc', 'Meta Desc'),
+			'SEO' => [
+				FormItem::text('meta-head', 'Meta Заголовок'),
+				FormItem::text('meta-keyw', 'Meta Ключевые слова'),
+				FormItem::textarea('meta-desc', 'Meta Описание'),
 			]
 		]);
 	else
