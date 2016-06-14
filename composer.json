@@ -15,7 +15,9 @@
         "laravel/framework": "5.2.*",
         "sleeping-owl/admin": "dev-fixSentinelfix52",
         "cartalyst/sentinel": "2.0.*",
-        "laravelcollective/html": "5.2.*"
+        "laravelcollective/html": "5.2.*",
+        "gloudemans/shoppingcart": "~1.3",
+        "intervention/image": "2.*"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

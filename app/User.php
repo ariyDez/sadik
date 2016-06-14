@@ -37,7 +37,7 @@ class User extends EloquentUser
         $this->theroles()->attach($roles);
     }
 
-    public function getTherolesAttribute($roles)
+    public function getTherolesAttribute()
     {
         return array_pluck($this->theroles()->get(['id']), 'id');
     }
@@ -45,5 +45,20 @@ class User extends EloquentUser
     public function gardens()
     {
         return $this->hasMany('App\Garden');
+    }
+
+    public function photoCompetitions()
+    {
+        return $this->hasMany('App\PhotoCompetition');
+    }
+    
+    public function competitioins()
+    {
+        return $this->hasMany('App\Competition');
+    }
+
+    public function voices()
+    {
+        return $this->hasMany('App\Voice');
     }
 }

@@ -50,24 +50,37 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('logout', 'AuthController@logoutuser');
     Route::get('admin/logout', 'AuthController@logoutuser');
 
-    // ������������ ����� ������ � �������� ����� ������. ��� ������ �������� -
-    // �������� � �������� E-Mail ������������
+    // Пользователь забыл пароль и запросил сброс пароля. Это начало процесса -
+    // Страница с запросом E-Mail пользователя
     Route::get('reset', 'AuthController@resetOrder');
 
-    // ������������ �������� � �������� ����� � E-Mail � ������� �� ����� ������
+    // Пользователь заполнил и отправил форму с E-Mail в запросе на сброс пароля
     Route::post('reset', 'AuthController@resetOrderProcess');
 
-    // ������������ ������ ������ �� ������� �� ��� �������� ��� ����� ������ ������
+    // Пользователю пришло письмо со ссылкой на эту страницу для ввода нового пароля
     Route::get('reset/{id}/{code}', 'AuthController@resetComplete');
 
-    // ������������ ���� ����� ������ � ��������
+    // Пользователь ввел новый пароль и отправил.
     Route::post('reset/{id}/{code}', 'AuthController@resetCompleteProcess');
 
-    // ��������� ���������, ���������� ����� ���������� ���. �����, ����� ������ ������ �
-    // � ���, ��� ������ ���������� � ���� ��������� � �������� ����.
-
-    Route::get('/', 'IndexController@index');
+    // Сервисная страничка, показываем после заполнения рег формы, формы сброса и т.
+    // о том, что письмо отправлено и надо заглянуть в почтовый ящик.
+    
     Route::get('wait', 'AuthController@wait');
+    
+    // mine pages
+    Route::get('/', 'IndexController@index');
+    
+    Route::get('gardens', 'GardenController@index');
+    Route::get('gardens/{id}', 'GardenController@show');
+    Route::post('gardens/api/get', 'GardenController@getFilteredList');
+    Route::post('gardens/api/all', 'GardenController@getList');
+
+    Route::get('toys', 'ToyController@index');
+    Route::get('toys/{id}', 'ToyController@show');
+
+    Route::get('clothes', 'ClothesController@index');
+    Route::get('clothes/{id}', 'ClothesController@show');
 
     Route::get('articles', 'ArticlesController@index');
     Route::get('articles/{id}', 'ArticlesController@show');
@@ -80,4 +93,22 @@ Route::group(['middleware' => ['web']], function () {
 
     Route::get('movies', 'MovieController@index');
     Route::get('movies/{id}', 'MovieController@show');
+    
+    Route::get('goods/{id}', 'GoodController@show');
+    
+    Route::get('competitions', 'CompetitionController@index');
+    Route::get('competitions/{id}', 'CompetitionController@show');
+    Route::get('competitions/{id}/join', 'CompetitionController@joinShow');
+    Route::post('competitions/{id}/joinProcess', 'CompetitionController@joinProcess');
+    Route::get('competitions/{id}/addLike', 'CompetitionController@addLike');
+    Route::get('join', 'PhotoCompetitionController@showJoin');
+    Route::post('/competition/join', 'PhotoCompetitionController@joinProcess');
+    
+    Route::get('cart/content', 'CartController@content');
+    Route::post('cart/api/add', 'CartController@add');
+    //Route::get('join', ['middleware'=>'isadmin', 'uses' => 'PhotoCompetitionController@showJoin']);
+
+    // only test
+    Route::get('test', 'TestController@test');
+    Route::get('image', 'TestController@image');
 });

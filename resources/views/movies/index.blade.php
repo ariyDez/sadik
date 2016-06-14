@@ -3,6 +3,7 @@
 @section('body')
     <div class="container">
         <div class="row">
+            <h1 class="line green">Любимые мультфильмы</h1>
             @foreach($movies as $movie)
                 <div class="col-md-3">
                     <a href="{{action('MovieController@show', $movie->id)}}">
