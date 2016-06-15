@@ -31,15 +31,15 @@ Admin::model('App\Garden')->title('Садики')->display(function ()
 	if(Sentinel::inRole('admin'))
 		$form->items([
 			'Main' => [
-				FormItem::text('title', 'Title'),
+				FormItem::text('title', 'Title')->required()->unique(),
 				FormItem::image('image', 'Image'),
-				FormItem::select('user_id', 'Владелец')->model('App\User')->display('email'),
-				FormItem::select('district_id', 'Районы')->model('App\District')->display('title'),
-				FormItem::select('type_id', 'Тип')->model('App\Type')->display('title'),
-				FormItem::text('latitude', 'Широта'),
-				FormItem::text('longitude', 'Долгота'),
-				FormItem::text('seats', 'Количество мест'),
-				FormItem::text('engaged', 'Занятые места'),
+				FormItem::select('user_id', 'Владелец')->model('App\User')->display('email')->required(),
+				FormItem::select('district_id', 'Районы')->model('App\District')->display('title')->required(),
+				FormItem::select('type_id', 'Тип')->model('App\Type')->display('title')->required(),
+				FormItem::text('latitude', 'Широта')->required(),
+				FormItem::text('longitude', 'Долгота')->required(),
+				FormItem::text('seats', 'Количество мест')->required(),
+				FormItem::text('engaged', 'Занятые места')->required(),
 				FormItem::ckeditor('info', 'Информация')
 			],
 			'SEO' => [
@@ -52,13 +52,15 @@ Admin::model('App\Garden')->title('Садики')->display(function ()
 	else
 		$form->items([
 			'Main' => [
-				FormItem::text('title', 'Title'),
-				FormItem::image('image', 'Image'),
+				FormItem::text('title', 'Title')->required(),
+				FormItem::image('image', 'Image')->required(),
 				FormItem::hidden('user_id', Sentinel::check()->getUserId()),
-				FormItem::select('district_id', 'Районы')->model('App\District')->display('title'),
-				FormItem::select('type_id', 'Тип')->model('App\Type')->display('title'),
-				FormItem::text('seats', 'Количество мест'),
-				FormItem::text('engaged', 'Занятые места'),
+				FormItem::select('district_id', 'Районы')->model('App\District')->display('title')->required(),
+				FormItem::select('type_id', 'Тип')->model('App\Type')->display('title')->required(),
+				FormItem::text('latitude', 'Широта')->required(),
+				FormItem::text('longitude', 'Долгота')->required(),
+				FormItem::text('seats', 'Количество мест')->required(),
+				FormItem::text('engaged', 'Занятые места')->required(),
 				FormItem::ckeditor('info', 'Информация')
 			],
 			'SEO' => [

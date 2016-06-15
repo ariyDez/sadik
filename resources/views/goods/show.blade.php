@@ -11,12 +11,14 @@
             <div class="col-md-5">
                 <form>
                     <div>Цена: {{$item->price}} сом</div>
-                    <div><input type="number" max="5" min="0" class="form-control" placeholder="Количество в шт."></div>
+                    <div><input type="number" name='qty' max="5" min="0" class="form-control" placeholder="Количество в шт."></div>
+                    <input type="hidden" name="_token" value="{{csrf_token()}}">
+                    <input type="hidden" name="id" value="{{$item->id}}">
                     <div>Цвета: {{$item->color}}</div>
                     <div>{!! $item->description !!}</div>
                 </form>
 
-                <a href="javascript:" class="btn btn-primary" onclick="Cart.add(this, {{$item->id}}, '{{csrf_token()}}')">Add to Cart</a>
+                <a href="javascript:" class="btn btn-primary" onclick="Cart.add(this)">Add to Cart</a>
             </div>
         </div>
     </div>

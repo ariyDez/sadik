@@ -33,4 +33,9 @@ class Good extends Model
     {
         return $this->belongsToMany('App\Color');
     }
+
+    public function orders()
+    {
+        return $this->hasMany('App\Order');
+    }
 }

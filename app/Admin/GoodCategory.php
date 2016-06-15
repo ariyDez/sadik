@@ -17,8 +17,8 @@ Admin::model('App\GoodCategory')->title('Категории товаров')->di
 {
 	$form = AdminForm::form();
 	$form->items([
-		FormItem::text('title', 'Title'),
-		FormItem::text('slug', 'Slug'),
+		FormItem::text('title', 'Title')->required(),
+		FormItem::text('slug', 'Slug')->required()->unique(),
 		FormItem::image('image', 'Image'),
 	]);
 	return $form;

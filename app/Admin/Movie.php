@@ -17,10 +17,10 @@ Admin::model('App\Movie')->title('Видео')->display(function ()
 {
 	$form = AdminForm::form();
 	$form->items([
-		FormItem::text('title', 'Title'),
-		FormItem::text('href', 'Href'),
+		FormItem::text('title', 'Title')->required(),
+		FormItem::text('href', 'Href')->required()->unique(),
 		FormItem::image('image', 'Image'),
-		FormItem::select('category_id')->model('App\MovieCategory')->label('Категория'),
+		FormItem::select('category_id')->model('App\MovieCategory')->label('Категория')->required(),
 	]);
 	return $form;
 });

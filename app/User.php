@@ -47,6 +47,11 @@ class User extends EloquentUser
         return $this->hasMany('App\Garden');
     }
 
+    public function goods()
+    {
+        return $this->hasMany('App\Goods');
+    }
+
     public function photoCompetitions()
     {
         return $this->hasMany('App\PhotoCompetition');
@@ -60,5 +65,10 @@ class User extends EloquentUser
     public function voices()
     {
         return $this->hasMany('App\Voice');
+    }
+    
+    public function orders()
+    {
+        return $this->hasMany('App\Order');
     }
 }

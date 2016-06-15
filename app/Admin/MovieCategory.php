@@ -17,8 +17,8 @@ Admin::model('\App\MovieCategory')->title('Категория')->display(functio
 {
 	$form = AdminForm::form();
 	$form->items([
-		FormItem::text('title')->label('Заголовок'),
-		FormItem::text('slug')->label('Slug'),
+		FormItem::text('title')->label('Заголовок')->required(),
+		FormItem::text('slug')->label('Slug')->required()->unique(),
 		FormItem::image('image')->label('Картинка')
 	]);
 	return $form;

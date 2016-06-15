@@ -27,7 +27,7 @@ function showVisibleObjects(myMap, objects)
                 elem  = "<div class='media'>";
                 elem += "<div class='media-left media-top'>";
                 elem += "<a href='/gardens/"+garden.id+"'>";
-                elem += "<img class='media-object' src='/"+garden.image+"' width='100' height='100'>";
+                elem += "<img class='media-object' src='/"+garden.image+"' width='130' height='130'>";
                 elem += "</a>";
                 elem += "</div>";
                 elem += "<div class='media-body'>";
@@ -50,12 +50,17 @@ function init() {
         controls: ['default']
     }, {
         searchControlProvider: 'yandex#search'
-    }), objectManager = new ymaps.ObjectManager({
+    });
+    //отключаем масштабирование колесиком
+    myMap.behaviors.disable('scrollZoom');
+    objectManager = new ymaps.ObjectManager({
         // Чтобы метки начали кластеризоваться, выставляем опцию.
         clusterize: true,
-        geoObjectOpenBalloonOnClick: false,
-        clusterOpenBalloonOnClick: false
+        geoObjectOpenBalloonOnClick: true,
+        clusterOpenBalloonOnClick: true
     });
+
+
     myMap.geoObjects.add(objectManager);
 
     // Создадим объекты на основе JSON-описания геометрий.
@@ -67,6 +72,7 @@ function init() {
     });
 
     promise.then(function(response){
+        console.log(response);
         var object = {
             type: "FeatureCollection",
             features: response

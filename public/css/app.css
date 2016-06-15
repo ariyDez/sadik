@@ -8215,14 +8215,22 @@ h1.line.pink:after {
   .map-container .map-panel {
     overflow-y: auto;
     position: absolute;
-    width: 250px;
+    width: 315px;
     height: 425px;
     background: #fff;
     top: 110px;
-    left: -80px;
-    opacity: 0.5;
+    right: -70px;
+    opacity: 0.3;
     transition: 1s; }
+    .map-container .map-panel .media {
+      transition: background 1s, color 1s; }
+    .map-container .map-panel .media:hover {
+      background: #E74C3C;
+      color: #fff; }
   .map-container .map-panel:hover {
     opacity: 1; }
+
+.map_balloon {
+  color: #E74C3C; }
 
 /*# sourceMappingURL=app.css.map */

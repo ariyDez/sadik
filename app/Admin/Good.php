@@ -25,12 +25,12 @@ Admin::model('App\Good')->title('Товары')->display(function ()
 	if(Sentinel::inRole('admin'))
 		$form->items([
 			'Main Tab' => [
-				FormItem::text('title', 'Title'),
-				FormItem::text('price', 'Price'),
+				FormItem::text('title', 'Title')->required(),
+				FormItem::text('price', 'Price')->required(),
 				FormItem::image('image', 'Image'),
-				FormItem::select('user_id')->model('App\User')->display('email'),
+				FormItem::select('user_id')->model('App\User')->display('email')->required(),
 				FormItem::ckeditor('description', 'Description'),
-				FormItem::select('good_category_id')->model('App\GoodCategory')->label('Категория'),
+				FormItem::select('good_category_id')->model('App\GoodCategory')->label('Категория')->required(),
 				FormItem::multiselect('colors', 'Colors')->model('App\Color')->display('key')
 			],
 			'SEO' => [
@@ -42,12 +42,13 @@ Admin::model('App\Good')->title('Товары')->display(function ()
 	else
 		$form->items([
 			'Main Tab' => [
-				FormItem::text('title', 'Заголовок'),
-				FormItem::text('price', 'Цена'),
+				FormItem::text('title', 'Заголовок')->required(),
+				FormItem::text('price', 'Цена')->required(),
 				FormItem::image('image', 'Изображение'),
 				FormItem::hidden('user_id', Sentinel::check()->getUserId()),
 				FormItem::ckeditor('description', 'Описание'),
-				FormItem::select('good_category_id')->model('App\GoodCategory')->label('Категория'),
+				FormItem::select('good_category_id')->model('App\GoodCategory')->label('Категория')->required(),
+				FormItem::multiselect('colors', 'Colors')->model('App\Color')->display('key')
 			],
 			'SEO' => [
 				FormItem::text('meta-head', 'Meta Заголовок'),

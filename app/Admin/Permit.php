@@ -21,8 +21,8 @@ Admin::model('App\Permit')->title('Права пользователей')->disp
 {
 	$form = AdminForm::form();
 	$form->items([
-		FormItem::text('name', 'Имя'),
-		FormItem::text('slug', 'Slug'),
+		FormItem::text('name', 'Имя')->required()->unique(),
+		FormItem::text('slug', 'Slug')->required()->unique(),
 	]);
 	return $form;
 });

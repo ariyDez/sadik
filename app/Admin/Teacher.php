@@ -26,10 +26,10 @@ Admin::model('App\Teacher')->title('Учителя')->display(function ()
 	$form = AdminForm::form();
 	if(Sentinel::inRole('admin'))
 		$form->items([
-			FormItem::text('name', 'Name'),
+			FormItem::text('name', 'Name')->required(),
 			FormItem::text('position', 'Position'),
 			FormItem::image('image', 'Image'),
-			FormItem::select('garden_id', "Садик")->model('App\Garden')->display('title'),
+			FormItem::select('garden_id', "Садик")->model('App\Garden')->display('title')->required(),
 		]);
 	else
 		$form->items([
