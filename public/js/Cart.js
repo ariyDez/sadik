@@ -7,20 +7,20 @@ $.ajaxPrefilter(function(options, originalOptions, xhr) { // this will run befor
 });
 var Cart = {
     deal: 0,
-    add: function(elem,id,csrf){
+    add: function(elem){
         $good = $(elem);
         $img = $good.parent().parent().find('img');
 
         $newImg = $img.clone(true);
         $img.parent().append($newImg);
         $newImg.css({position: 'absolute', opacity: 1, left: '15px'})
-
+        console.log($good.parent().find('form').serialize());
         $cart = $('.cart');
 
         $.ajax({
             method: "POST",
             url: "/cart/api/add",
-            data: {'id': id,'_token': csrf},
+            data: $good.parent().find('form').serialize(),
             success: function(response){
                 $newImg.animate({left: '1085px', top: '-215px', width: '30px', height: '30px', opacity: 0}, 1500,'swing');
                 $cart.find('.badge').text(response.deal);

@@ -22,7 +22,7 @@
                     <div class="nav">
                         <table>
                             <tr>
-                                <td><a href="{{action('CompetitionController@addLike', $participiant->id)}}"><i class="fa fa-thumbs-up"><span class="badge">3</span></i></a></td>
+                                <td><a href="{{action('CompetitionController@addLike', $participiant->id)}}"><i class="fa fa-thumbs-up"><span class="badge">{{$participiant->likes}}</span></i></a></td>
                                 <td><a href="#"><i class="fa fa-facebook-official"></i></a></td>
                                 <td><a href="#"><i class="fa fa-vk"></i></a></td>
                                 <td><a href="#"><i class="fa fa-odnoklassniki"></i></a></td>

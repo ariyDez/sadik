@@ -8215,14 +8215,31 @@ h1.line.pink:after {
   .map-container .map-panel {
     overflow-y: auto;
     position: absolute;
-    width: 250px;
+    width: 315px;
     height: 425px;
     background: #fff;
     top: 110px;
-    left: -80px;
-    opacity: 0.5;
+    right: -70px;
+    opacity: 0.3;
     transition: 1s; }
+    .map-container .map-panel .media {
+      transition: background 1s; }
+      .map-container .map-panel .media a {
+        color: #E74C3C;
+        transition: color 1s;
+        text-decoration: none; }
+      .map-container .map-panel .media a:hover {
+        color: #fff; }
+    .map-container .map-panel .media:hover {
+      background: #E74C3C; }
   .map-container .map-panel:hover {
     opacity: 1; }
+
+a.map_balloon {
+  color: #E74C3C;
+  text-decoration: none; }
+
+a.map_balloon:active {
+  color: #49a9e3; }
 
 /*# sourceMappingURL=app.css.map */

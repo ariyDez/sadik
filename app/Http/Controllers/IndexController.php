@@ -16,6 +16,7 @@ class IndexController extends Controller
 {
     public function index()
     {
+        $title = 'Главная';
         $gardens = Garden::all();
         $clothes = GoodCategory::where('slug', 'clothes')->first();
         $toy     = GoodCategory::where('slug', 'toys')->first();
@@ -25,6 +26,6 @@ class IndexController extends Controller
         $blogs   = Blog::all();
         $competitions = Competition::all();
         //$errors  = 'wtf';
-        return view('index', compact('gardens', 'movies', 'blogs', 'goods','toys', 'competitions','errors'));
+        return view('index', compact('gardens', 'movies', 'blogs', 'goods','toys', 'competitions','errors', 'title'));
     }
 }

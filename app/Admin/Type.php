@@ -22,7 +22,7 @@ Admin::model('App\Type')->title('Типы')->display(function ()
 {
 	$form = AdminForm::form();
 	$form->items([
-		FormItem::text('title', 'Title'),
+		FormItem::text('title', 'Title')->required(),
 		FormItem::text('info', 'Info'),
 		FormItem::image('image', 'Image'),
 	]);

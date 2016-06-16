@@ -12,8 +12,9 @@ class GardenController extends AbstractController
 
     public function index()
     {
+        $title = 'Садики';
         $gardens = Garden::all();
-        return view('gardens.index', compact('gardens'));
+        return view('gardens.index', compact('gardens','title'));
     }
 
     public function show($id)
@@ -43,12 +44,21 @@ class GardenController extends AbstractController
         $maps = [];
         foreach ($gardens as $garden)
         {
+            $balloonContent = "<a href='/gardens/{$garden->id}' class='map_balloon'><h2>{$garden->title}</h2></a>";
+            $balloonContent .= $garden->info;
             $point = [
                 'type' => 'Feature',
                 'id'   => $garden->id,
                 'geometry' => [
                     'type' => 'Point',
                     'coordinates' => [$garden->latitude, $garden->longitude]
+                ],
+                'options' => [
+                    'preset' => 'islands#dotIcon'
+                ],
+                'properties' => [
+                    'hintContent' => $garden->title,
+                    'balloonContent' => $balloonContent
                 ]
             ];
             $maps[] = $point;

@@ -28,8 +28,8 @@ Admin::model('App\Role')->title('Роли пользователей	')->display
 		]);
 	else
 		$form->items([
-			FormItem::text('name', 'Название'),
-			FormItem::text('slug', 'Роль'),
+			FormItem::text('name', 'Название')->required(),
+			FormItem::text('slug', 'Роль')->required()->unique(),
 			FormItem::multiselect('permits', 'Права доступа')->model('App\Permit')->display('name')
 		]);
 	return $form;

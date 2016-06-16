@@ -12,13 +12,14 @@ class ToyController extends AbstractController
 {
     public function index()
     {
+        $title = 'Игрушки';
         $toy = GoodCategory::where('slug', 'toys')->firstOrFail();
         $moduleName = 'Игрушки';
         $color = 'orange';
         $controller = 'Toy';
         $items = $toy->goods;
 
-        return view('goods.index', compact('items', 'moduleName', 'color', 'controller'));
+        return view('goods.index', compact('items', 'moduleName', 'color', 'controller', 'title'));
     }
 
     public function show($id)
