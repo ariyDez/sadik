@@ -424,11 +424,18 @@ h1.line.pink:after{
     opacity: 0.3;
     transition: 1s;
     .media{
-      transition: background 1s, color 1s;
+      transition: background 1s;
+      a{
+        color: #E74C3C;
+        transition: color 1s;
+        text-decoration: none;
+      }
+      a:hover{
+        color: #fff;
+      }
     }
     .media:hover{
       background: #E74C3C;
-      color: #fff;
     }
   }
 
@@ -436,7 +443,11 @@ h1.line.pink:after{
     opacity: 1;
   }
 }
-.map_balloon{
+a.map_balloon{
   color: #E74C3C;
+  text-decoration: none;
+}
+a.map_balloon:active{
+  color: #49a9e3;
 }
 

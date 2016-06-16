@@ -72,6 +72,7 @@ class CompetitionController extends Controller
             $participiant->save();
         }
         else
-            return Redirect::back();
+            return Redirect::back()
+                ->withErrors("Вы уже голосовали за этого участника");
     }
 }

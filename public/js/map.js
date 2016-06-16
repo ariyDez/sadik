@@ -25,14 +25,14 @@ function showVisibleObjects(myMap, objects)
             {
                 garden = response[i][0];
                 elem  = "<div class='media'>";
-                elem += "<div class='media-left media-top'>";
                 elem += "<a href='/gardens/"+garden.id+"'>";
+                elem += "<div class='media-left media-top'>";
                 elem += "<img class='media-object' src='/"+garden.image+"' width='130' height='130'>";
-                elem += "</a>";
                 elem += "</div>";
                 elem += "<div class='media-body'>";
                 elem += "<h4 class='media-heading'>"+garden.title+"</h4>";
                 elem += "</div>";
+                elem += "</a>";
                 elem += "</div>";
                 $map_panel.append(elem);
             }
