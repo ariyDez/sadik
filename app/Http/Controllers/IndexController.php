@@ -17,10 +17,10 @@ class IndexController extends Controller
     public function index()
     {
         $gardens = Garden::all();
-        $clothes = GoodCategory::where('slug', 'clothes')->firstOrFail();
-        $toy     = GoodCategory::where('slug', 'toys')->firstOrFail();
-        $goods = $clothes->goods;
-        $toys  = $toy->goods;
+        $clothes = GoodCategory::where('slug', 'clothes')->first();
+        $toy     = GoodCategory::where('slug', 'toys')->first();
+        $goods = (count($clothes)) > 0 ? $clothes->goods: [];
+        $toys  = (count($toy) > 0) ? $toy->goods : [];
         $movies  = Movie::all();
         $blogs   = Blog::all();
         $competitions = Competition::all();

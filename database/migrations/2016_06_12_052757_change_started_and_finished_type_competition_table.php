@@ -13,8 +13,8 @@ class ChangeStartedAndFinishedTypeCompetitionTable extends Migration
     public function up()
     {
         Schema::table('competitions', function(Blueprint $table){
-            //$table->dropColumn('started_at');
-           // $table->dropColumn('finished_at');
+            $table->dropColumn('started_at');
+            $table->dropColumn('finished_at');
             $table->date('started_at');
             $table->date('finished_at');
         });
