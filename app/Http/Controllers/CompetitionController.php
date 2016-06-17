@@ -14,7 +14,11 @@ use Illuminate\Support\Facades\Redirect;
 
 class CompetitionController extends Controller
 {
-    
+    public function __construct()
+    {
+        $this->middleware('mine');
+    }
+
     public function index()
     {
         $competitions = Competition::all();
