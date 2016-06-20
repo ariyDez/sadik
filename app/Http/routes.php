@@ -104,8 +104,10 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('join', 'PhotoCompetitionController@showJoin');
     Route::post('/competition/join', 'PhotoCompetitionController@joinProcess');
     
-    Route::get('cart/content', 'CartController@content');
+    Route::get('cart', 'CartController@content');
     Route::post('cart/api/add', 'CartController@add');
+    
+    Route::get('orders', 'OrderController@index');
     //Route::get('join', ['middleware'=>'isadmin', 'uses' => 'PhotoCompetitionController@showJoin']);
 
     // only test

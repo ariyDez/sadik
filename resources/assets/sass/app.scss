@@ -451,3 +451,14 @@ a.map_balloon:active{
   color: #49a9e3;
 }
 
+.table-hover{
+  thead{
+
+  }
+  tbody{
+    td[colspan='2']{
+      text-align: right;
+  }
+  }
+}
+

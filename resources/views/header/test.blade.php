@@ -28,7 +28,7 @@
                             <div class="col-md-6"></div>
                             <div class="col-md-2">
                                 <div class="cart">
-                                    <a href="/cart/content"><i class="fa fa-shopping-basket"><span class="badge cart-badge">{{count(Cart::content())}}</span></i></a>
+                                    <a href="{{action('CartController@content')}}"><i class="fa fa-shopping-basket"><span class="badge cart-badge">{{count(Cart::content())}}</span></i></a>
                                 </div>
                             </div>
                         </div>

@@ -7,10 +7,10 @@
             <table class="table table-hover">
                 <thead>
                     <tr>
-                        <td>Title</td>
-                        <td>Quantity</td>
-                        <td>Price</td>
-                        <td>Total</td>
+                        <th>Название</th>
+                        <th>Количество</th>
+                        <th>Цена</th>
+                        <th>Сумма</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -23,10 +23,15 @@
                         </tr>
                     @endforeach
                     <tr>
+                        <th>Общая сумма:</th>
                         <td></td>
                         <td></td>
+                        <th>{{Cart::total()}}</th>
+                    </tr>
+                    <tr>
                         <td></td>
-                        <td>{{Cart::total()}}</td>
+                        <td></td>
+                        <td colspan="2"><a href="{{action('OrderController@index')}}" class="btn btn-primary">Подтвердить</a></td>
                     </tr>
                 </tbody>
             </table>

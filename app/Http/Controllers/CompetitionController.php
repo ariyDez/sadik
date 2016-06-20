@@ -16,7 +16,7 @@ class CompetitionController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('mine');
+        $this->middleware('mine',['except' => ['index', 'show']]);
     }
 
     public function index()

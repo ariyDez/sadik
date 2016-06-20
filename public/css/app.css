@@ -8242,4 +8242,7 @@ a.map_balloon {
 a.map_balloon:active {
   color: #49a9e3; }
 
+.table-hover tbody td[colspan='2'] {
+  text-align: right; }
+
 /*# sourceMappingURL=app.css.map */
