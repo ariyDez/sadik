@@ -3,27 +3,35 @@ ymaps.ready(init);
 function showVisibleObjects(myMap, objects)
 {
     var visibleObjects = objects.searchInside(myMap);
-    latitudes = [];
-    longitudes = [];
+    console.log(visibleObjects);
+    // latitudes = [];
+    // longitudes = [];
+    ids = [];
     for(point in visibleObjects._objects)
     {
-        latitude = objects._objects[point].geometry._coordinates[0];
-        longitude = objects._objects[point].geometry._coordinates[1];
+        // latitude = visibleObjects._objects[point].geometry._coordinates[0];
+        // longitude = visibleObjects._objects[point].geometry._coordinates[1];
 
-        latitudes.push(latitude);
-        longitudes.push(longitude);
+        id = visibleObjects._objects[point].properties._data.id;
+        console.log(id);
+        // latitudes.push(latitude);
+        // longitudes.push(longitude);
+        ids.push(id);
     }
-    var data = $.param({latitude: latitudes, longitude: longitudes});
+    // var data = $.param({latitude: latitudes, longitude: longitudes});
+    var datas = $.param({id: ids});
+    console.log(datas);
     $.ajax({
         method: 'POST',
         url: '/gardens/api/get',
-        data: data,
+        data: datas,
         success: function(response){
+            console.log(response);
             $map_panel.empty();
             $map_panel.append("<h1 class='line red'>Садики</h1>");
             for(i=0; i<response.length; i++)
             {
-                garden = response[i][0];
+                garden = response[i];
                 elem  = "<div class='media'>";
                 elem += "<a href='/gardens/"+garden.id+"'>";
                 elem += "<div class='media-left media-top'>";
@@ -49,7 +57,8 @@ function init() {
         zoom: 12,
         controls: ['default']
     }, {
-        searchControlProvider: 'yandex#search'
+        // searchControlProvider: 'yandex#search'
+        searchControlProvider: null
     });
     //отключаем масштабирование колесиком
     myMap.behaviors.disable('scrollZoom');

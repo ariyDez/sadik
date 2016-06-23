@@ -96,7 +96,8 @@
                         </div>
                         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
                             <div class="panel-body">
-                                <form action="/orders/setDeliver">
+                                <form action="{{action('OrderController@setOrder')}}" method="post">
+                                    <input type="hidden" name="_token" value="{{csrf_token()}}">
                                     <label for="deliver0">Самовывоз</label>
                                     <input type="radio" name="deliver" value="0" id="deliver0">
                                     <label for="deliver1">Доставка курьером</label>

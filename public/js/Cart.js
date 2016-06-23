@@ -9,8 +9,11 @@ var Cart = {
     deal: 0,
     add: function(elem){
         $good = $(elem);
-        $img = $good.parent().parent().find('img');
-
+        // if($good.hasClass('rar'))
+        //     $img = $good.parent().parent().parent().parent().parent().parent().find('img');
+        // else
+            $img = $good.parent().parent().find('img');
+        // console.log($img);
         $newImg = $img.clone(true);
         $img.parent().append($newImg);
         $newImg.css({position: 'absolute', opacity: 1, left: '15px'})

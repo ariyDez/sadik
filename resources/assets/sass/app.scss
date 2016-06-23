@@ -423,6 +423,7 @@ h1.line.pink:after{
     right: -70px;
     opacity: 0.3;
     transition: 1s;
+    z-index: 10001;
     .media{
       transition: background 1s;
       a{

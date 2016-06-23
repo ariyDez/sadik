@@ -14,9 +14,25 @@ class Order extends Model
     {
         return $this->belongsTo('App\User');
     }
+    
+    public function setUserAttribute($user)
+    {
+        $this->user()->dissociate();
+        if(!$user) return;
+        if(!$this->exists) $this->save();
+        $this->user()->associate($user);
+    }
 
     public function good()
     {
         return $this->belongsTo('App\Good');
+    }
+
+    public function setGoodAttribute($good)
+    {
+        $this->good()->dissociate();
+        if(!$good) return;
+        if(!$this->exists) $this->save();
+        $this->good()->associate($good);
     }
 }

@@ -8,8 +8,10 @@
                     <h1 class="line red">Популярные садики</h1>
                     @foreach($gardens as $garden)
                     <div class="col-md-3">
-                        <img src="/images/foo/sadik1.png" alt="" width="200" height="180">
-                    <h3>{{$garden->title}}</h3>
+                        <a href="{{action('GardenController@show', $garden->id)}}">
+                            <img src="{{$garden->image}}" alt="" width="200" height="180">
+                            <h3>{{$garden->title}}</h3>
+                        </a>
                     </div>
                     @endforeach
                     {{--@for($i=0; $i<8; $i++)--}}
@@ -27,14 +29,20 @@
                 @foreach($goods as $good)
                     <div class="col-md-4">
                         <div class="item">
-                            <a href="{{action('GoodController@show', $good->id)}}"><img src="{{$good->image}}" alt="" width="100%" height="250"></a>
+                            <a href="{{action('ClothesController@show', $good->id)}}">
+                                <img src="{{$good->image}}" alt="" width="100%" height="250">
+                            </a>
                             <div class="nav">
                                 <table>
                                     <tr>
-                                        <td><a href="#"><i class="fa fa-shopping-cart"></i></a></td>
-                                        <td><a href="#"><i class="fa fa-paint-brush"></i></a></td>
-                                        <td><a href="#"><i class="fa fa-shopping-cart"></i></a></td>
-                                        <td><a href="#"><i class="fa fa-shopping-cart"></i></a></td>
+                                        <td>
+                                            <form>
+                                                <input type="hidden" name='qty' value="1">
+                                                <input type="hidden" name="_token" value="{{csrf_token()}}">
+                                                <input type="hidden" name="id" value="{{$good->id}}">
+                                            </form>
+                                            <a href="javascript:" class="rar" onclick="Cart.add(this)"><i class="fa fa-shopping-cart"></i></a>
+                                        </td>
                                     </tr>
                                 </table>
                             </div>
@@ -47,14 +55,20 @@
                 @foreach($toys as $toy)
                     <div class="col-md-4">
                         <div class="item">
-                            <img src="{{$toy->image}}" alt="" width="100%" height="250">
+                            <a href="{{action('ToyController@show', $toy->id)}}">
+                                <img src="{{$toy->image}}" alt="" width="100%" height="250">
+                            </a>
                             <div class="nav">
                                 <table>
                                     <tr>
-                                        <td><a href="#"><i class="fa fa-shopping-cart"></i></a></td>
-                                        <td><a href="#"><i class="fa fa-shopping-cart"></i></a></td>
-                                        <td><a href="#"><i class="fa fa-shopping-cart"></i></a></td>
-                                        <td><a href="#"><i class="fa fa-shopping-cart"></i></a></td>
+                                        <td>
+                                            <form>
+                                                <input type="hidden" name='qty' value="1">
+                                                <input type="hidden" name="_token" value="{{csrf_token()}}">
+                                                <input type="hidden" name="id" value="{{$toy->id}}">
+                                            </form>
+                                            <a href="javascript:" onclick="Cart.add(this)"><i class="fa fa-shopping-cart"></i></a>
+                                        </td>
                                     </tr>
                                 </table>
                             </div>

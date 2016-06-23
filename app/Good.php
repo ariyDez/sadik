@@ -34,6 +34,27 @@ class Good extends Model
         return $this->belongsToMany('App\Color');
     }
 
+    public function setColorsAttribute($colors)
+    {
+        // устанавливаем новый набор прав для роли
+        if(isset($colors))
+            foreach($colors as $colorid)
+            {
+                $color = \App\Color::find($colorid);
+                
+            }
+        // перезаписываем отношения с таблицей permits
+        $this->colors()->detach();
+        if( !$colors) return;
+        if( !$this->exists) $this->save();
+        $this->colors()->attach($colors);
+    }
+
+    public function getColorsAttribute()
+    {
+        return array_pluck($this->colors()->get()->toArray(), 'id');
+    }
+
     public function orders()
     {
         return $this->hasMany('App\Order');

@@ -20,7 +20,7 @@ class CartController extends Controller
     public function add(Request $request)
     {
         $good = Good::find($request->id);
-        Cart::add(time().$good->id, $good->title, $request->qty, $good->price, array());
+        Cart::add(time().$good->id, $good->title, $request->qty, $good->price, array('id' => $good->id));
         $data['cart'] = Cart::content();
         $data['deal'] = count($data['cart']);
         //Cart::destroy();

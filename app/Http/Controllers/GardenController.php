@@ -29,10 +29,12 @@ class GardenController extends AbstractController
     {
         $latitudes = $request->input('latitude');
         $longitudes = $request->input('longitude');
+        $ids = $request->input('id');
         $gardens = [];
-        for($i=0; $i<count($latitudes); $i++)
+        for($i=0; $i<count($ids); $i++)
         {
-            $garden = Garden::where('latitude', $latitudes[$i])->where('longitude', $longitudes[$i])->get();
+//            $garden = Garden::where('latitude', $latitudes[$i])->where('longitude', $longitudes[$i])->get();
+            $garden = Garden::find($ids[$i]);
             $gardens[$i] = $garden;
         }
         return response()->json($gardens);
@@ -58,7 +60,8 @@ class GardenController extends AbstractController
                 ],
                 'properties' => [
                     'hintContent' => $garden->title,
-                    'balloonContent' => $balloonContent
+                    'balloonContent' => $balloonContent,
+                    'id' => $garden->id
                 ]
             ];
             $maps[] = $point;

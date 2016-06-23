@@ -108,6 +108,7 @@ Route::group(['middleware' => ['web']], function () {
     Route::post('cart/api/add', 'CartController@add');
     
     Route::get('orders', 'OrderController@index');
+    Route::post('orders/set', 'OrderController@setOrder');
     //Route::get('join', ['middleware'=>'isadmin', 'uses' => 'PhotoCompetitionController@showJoin']);
 
     // only test
