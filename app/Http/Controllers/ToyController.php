@@ -25,6 +25,8 @@ class ToyController extends AbstractController
     public function show($id)
     {
         $item = Good::find($id);
+        $colors  = $item->colors;
+//        dd($colors);
         $color = 'orange';
         return view('goods.show', compact('item', 'color'));
         

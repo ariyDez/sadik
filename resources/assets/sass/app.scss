@@ -459,7 +459,13 @@ a.map_balloon:active{
   tbody{
     td[colspan='2']{
       text-align: right;
+    }
   }
-  }
+}
+.color{
+  display: inline-block;
+  width: 20px;
+  height: 15px;
+  border: 1px black solid;
 }
 

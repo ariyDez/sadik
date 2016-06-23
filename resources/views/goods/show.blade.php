@@ -14,7 +14,10 @@
                     <div><input type="number" name='qty' max="5" min="0" class="form-control" placeholder="Количество в шт."></div>
                     <input type="hidden" name="_token" value="{{csrf_token()}}">
                     <input type="hidden" name="id" value="{{$item->id}}">
-                    <div>Цвета: {{$item->color}}</div>
+                    <div>Цвета:</div>
+                    @foreach($item->colors as $color)
+                        <div class="color" style="background: #{{$color->value}}"></div>
+                    @endforeach
                     <div>{!! $item->description !!}</div>
                 </form>
 

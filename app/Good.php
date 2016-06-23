@@ -50,10 +50,10 @@ class Good extends Model
         $this->colors()->attach($colors);
     }
 
-    public function getColorsAttribute()
-    {
-        return array_pluck($this->colors()->get()->toArray(), 'id');
-    }
+//    public function getColorsAttribute()
+//    {
+//        return array_pluck($this->colors()->get()->toArray(), 'id');
+//    }
 
     public function orders()
     {

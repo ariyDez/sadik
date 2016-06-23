@@ -17,7 +17,7 @@ Admin::model('App\Blog')->title('Блог')->display(function ()
 	$form = AdminForm::form();
 	$form->items([
 		FormItem::text('title', 'Title'),
-		FormItem::text('text', 'Text'),
+		FormItem::ckeditor('text', 'Text'),
 	]);
 	return $form;
 });
