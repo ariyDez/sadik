@@ -50,4 +50,9 @@ class Garden extends Model
     {
         return $this->hasMany('App\Section');
     }
+    
+    public function recalls()
+    {
+        return $this->hasMany('App\Recall');
+    }
 }

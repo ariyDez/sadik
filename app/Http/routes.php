@@ -109,6 +109,8 @@ Route::group(['middleware' => ['web']], function () {
     
     Route::get('orders', 'OrderController@index');
     Route::post('orders/set', 'OrderController@setOrder');
+    
+    Route::post('recall/add', 'RecallController@add');
     //Route::get('join', ['middleware'=>'isadmin', 'uses' => 'PhotoCompetitionController@showJoin']);
 
     // only test

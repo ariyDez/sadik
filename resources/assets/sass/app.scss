@@ -337,6 +337,10 @@ h1.line.pink:before,
 h1.line.pink:after{
   background: deeppink;
 }
+h1.line.short{
+  width: 50%;
+  margin:auto;
+}
 /**
 *
 * END
@@ -467,5 +471,10 @@ a.map_balloon:active{
   width: 20px;
   height: 15px;
   border: 1px black solid;
+}
+
+.recalls{
+  height: 400px;
+  overflow: auto;
 }
 

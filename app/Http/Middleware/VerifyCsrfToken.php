@@ -15,7 +15,7 @@ class VerifyCsrfToken extends BaseVerifier
     protected $except = [
         //
     ];
-    private $openRoutes = ['gardens/api/get', 'gardens/api/all'];
+    private $openRoutes = ['gardens/api/get', 'gardens/api/all', 'recall/add'];
 
 //modify this function
     public function handle($request, Closure $next)

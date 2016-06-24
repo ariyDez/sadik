@@ -71,4 +71,9 @@ class User extends EloquentUser
     {
         return $this->hasMany('App\Order');
     }
+    
+    public function recalls()
+    {
+        return $this->hasMany('App\Recall');
+    }
 }
