@@ -35,3 +35,47 @@ var Cart = {
 
     }
 };
+$(document).ready(function() {
+    $("#productRate").hover(
+        function () { /* при наведении мыши на блок с рейтингом, динамически добавляем блок с подсветкой выбранной оценки */
+            $(this).append("<span></span>");
+        },
+        function () { /* при уходе с рейтинга, удаляем блок с подсветкой */
+            $(this).find("span").remove();
+        });
+    var rating;
+    $("#productRate").mousemove(
+        /*
+         19
+         устанавливаем ширину блока с подсветкой таким образом, чтобы была выделена оценка, находящаяся под курсором мыши
+         20
+         */
+        function (e) {
+            if (!e) e = window.event;
+            if (e.pageX) {
+                x = e.pageX;
+            } else if (e.clientX) {
+                x = e.clientX + (document.documentElement.scrollLeft || document.body.scrollLeft) - document.documentElement.clientLeft;
+            }
+            var posLeft = 0;
+            var obj = this;
+            while (obj.offsetParent) {
+                posLeft += obj.offsetLeft;
+                obj = obj.offsetParent;
+            }
+            var offsetX = x - posLeft,
+                modOffsetX = 5 * offsetX % this.offsetWidth;
+            /* 5 - число возможных оценок */
+            rating = parseInt(5 * offsetX / this.offsetWidth);
+            if (modOffsetX > 0) rating += 1;
+            jQuery(this).find("span").eq(0).css("width", rating * 30 + "px");
+            /* ширина одной оценки, в данном случае одной звезды */
+        });
+    $("#productRate").click(/* по клику на блоке можно определить какую оценку поставил пользователь */
+        function () {
+            //alert("Я ставлю " + rating);
+            $(this).html("<div style='width: "+rating*30+"px'></div>");
+            $('input[name="rating"]').val(rating);
+            //return false;
+        });
+});

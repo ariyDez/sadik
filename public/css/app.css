@@ -8260,4 +8260,62 @@ a.map_balloon:active {
   height: 400px;
   overflow: auto; }
 
+/**
+*
+* stars
+*
+*
+**/
+#productRate {
+  background: url("/images/foo/stars1.png");
+  width: 150px;
+  height: 32px;
+  position: relative; }
+
+#productRate div {
+  background: url("/images/foo/stars1.png") left bottom;
+  width: 0;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  cursor: pointer; }
+
+#productRate span {
+  display: block;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  background: url("/images/foo/stars1.png") left center;
+  width: 0;
+  cursor: pointer; }
+
+.productRate {
+  background: url("/images/foo/stars1.png");
+  width: 150px;
+  height: 32px;
+  position: relative; }
+
+.productRate div {
+  background: url("/images/foo/stars1.png") left bottom;
+  width: 0;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1; }
+
+.productRate span {
+  display: block;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  background: url("/images/foo/stars1.png") left center;
+  width: 0; }
+
 /*# sourceMappingURL=app.css.map */

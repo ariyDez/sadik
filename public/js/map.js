@@ -39,6 +39,7 @@ function showVisibleObjects(myMap, objects)
                 elem += "</div>";
                 elem += "<div class='media-body'>";
                 elem += "<h4 class='media-heading'>"+garden.title+"</h4>";
+                elem += "<div class='productRate'><div style='width: "+garden.rating*30+"px;'></div></div>";
                 elem += "</div>";
                 elem += "</a>";
                 elem += "</div>";

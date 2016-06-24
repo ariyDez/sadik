@@ -47,6 +47,7 @@ class GardenController extends AbstractController
         foreach ($gardens as $garden)
         {
             $balloonContent = "<a href='/gardens/{$garden->id}' class='map_balloon'><h2>{$garden->title}</h2></a>";
+            $balloonContent .= "<div class='productRate'><div style='width: ".$garden->rating * 30 . "px'></div></div>";
             $balloonContent .= $garden->info;
             $point = [
                 'type' => 'Feature',

@@ -41,7 +41,6 @@
                                 </p>
                             </div>
                         </div>
-
                     </div>
                 @endforeach
                 <div class="clearfix"></div>
@@ -61,7 +60,7 @@
                 @endforeach
                 <div class="clearfix"></div>
             @endif
-            <h1 class="line red">Отзывы</h1>
+            <h1 class="line red">Отзывы - {{count($garden->recalls)}}</h1>
             <div class="recalls">
                 @if(count($garden->recalls) > 0)
                     @foreach($garden->recalls as $recall)
@@ -71,6 +70,9 @@
                             </div>
                             <div class="media-body">
                                 <h4 class="media-heading">{{$recall->user->email}}({{$recall->created_at}})</h4>
+                                <div class="productRate">
+                                    <div style="width: {{30*$recall->rating}}px;"></div>
+                                </div>
                                 <p>{{$recall->text}}</p>
                             </div>
                         </div>
@@ -82,6 +84,9 @@
 
             @if(Sentinel::check())
                 <form action="javascript:">
+                    <div id="productRate">
+                    </div>
+                    <input type="hidden" name="rating" value="0">
                     <input type="hidden" name="_token" value="{{csrf_token()}}">
                     <input type="hidden" name="user" value="{{Sentinel::getUser()->id}}">
                     <input type="hidden" name="garden" value="{{$garden->id}}">
