@@ -14,8 +14,12 @@
     @include('header.test')
 {{--</header>--}}
 <section>
-    @include('errors.errmsg')
-    @yield('body')
+    <div class="container">
+        <div class="row bodyRow">
+            @include('errors.errmsg')
+            @yield('body')
+        </div>
+    </div>
 </section>
 @include('footer.footer')
 @include('footer.foot_script')

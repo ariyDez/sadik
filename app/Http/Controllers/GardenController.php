@@ -37,6 +37,9 @@ class GardenController extends AbstractController
             $garden = Garden::find($ids[$i]);
             $gardens[$i] = $garden;
         }
+//        $gardens = array_sort($gardens, function($garden){
+//            return $garden->rating;
+//        });
         return response()->json($gardens);
     }
     

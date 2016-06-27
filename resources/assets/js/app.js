@@ -2,6 +2,7 @@ window.$ = window.jQuery = require('jquery');
 require('bootstrap-sass');
 
 $(function(){
+    $('.bodyRow').css('minHeight', document.body.clientHeight - 402);
     $('input[name="deliver"]').click(function(){
         var text = parseInt($(this).parent().find('input[name="total"]').val());
         alert(text);

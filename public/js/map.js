@@ -26,12 +26,29 @@ function showVisibleObjects(myMap, objects)
         url: '/gardens/api/get',
         data: datas,
         success: function(response){
+            console.log("bla-blaa");
             console.log(response);
             $map_panel.empty();
             $map_panel.append("<h1 class='line red'>Садики</h1>");
+            // for(i in response)
+            // {
+            //     garden = response[""+i+""];
+            //     elem  = "<div class='media'>";
+            //     elem += "<a href='/gardens/"+garden.id+"'>";
+            //     elem += "<div class='media-left media-top'>";
+            //     elem += "<img class='media-object' src='/"+garden.image+"' width='130' height='130'>";
+            //     elem += "</div>";
+            //     elem += "<div class='media-body'>";
+            //     elem += "<h4 class='media-heading'>"+garden.title+"</h4>";
+            //     elem += "<div class='productRate'><div style='width: "+garden.rating*30+"px;'></div></div>";
+            //     elem += "</div>";
+            //     elem += "</a>";
+            //     elem += "</div>";
+            //     $map_panel.append(elem);
+            // }
             for(i=0; i<response.length; i++)
             {
-                garden = response[i];
+                garden = response[""+i+""];
                 elem  = "<div class='media'>";
                 elem += "<a href='/gardens/"+garden.id+"'>";
                 elem += "<div class='media-left media-top'>";

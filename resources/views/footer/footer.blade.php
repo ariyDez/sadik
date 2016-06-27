@@ -24,6 +24,6 @@
 </svg>
 <footer>
     <div class="container">
-        <div class="row">bla-bla</div>
+        <div class="row"></div>
     </div>
 </footer>
