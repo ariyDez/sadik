@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Garden;
 use App\Movie;
-use App\Blog;
+use App\Article;
 use App\Good;
 use App\GoodCategory;
 
@@ -23,9 +23,9 @@ class IndexController extends Controller
         $goods = (count($clothes)) > 0 ? $clothes->goods: [];
         $toys  = (count($toy) > 0) ? $toy->goods : [];
         $movies  = Movie::all();
-        $blogs   = Blog::all();
+        $articles = Article::all();
         $competitions = Competition::all();
         //$errors  = 'wtf';
-        return view('index', compact('gardens', 'movies', 'blogs', 'goods','toys', 'competitions','errors', 'title'));
+        return view('index', compact('gardens', 'movies', 'articles', 'goods','toys', 'competitions','errors', 'title'));
     }
 }

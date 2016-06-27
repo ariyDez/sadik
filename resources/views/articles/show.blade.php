@@ -1,8 +1,9 @@
-@extends('app')
+@extends('layouts.master')
 
-@section('content')
+@section('body')
 
     <h1>{{$article->title}}</h1>
-    <div class="body">{{$article->body}}</div>
+    <img src="/{{$article->image}}" alt="">
+    <div class="body">{!! $article->text !!}</div>
 
 @stop

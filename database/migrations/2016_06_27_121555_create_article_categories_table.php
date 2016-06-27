@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateBlogsTable extends Migration
+class CreateArticleCategoriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,10 +12,11 @@ class CreateBlogsTable extends Migration
      */
     public function up()
     {
-        Schema::create('blogs', function (Blueprint $table) {
+        Schema::create('article_categories', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title');
-            $table->string('text');
+            $table->string('slug');
+            $table->string('image');
             $table->timestamps();
         });
     }
@@ -27,6 +28,6 @@ class CreateBlogsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('blogs');
+        Schema::drop('article_categories');
     }
 }

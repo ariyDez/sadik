@@ -542,4 +542,15 @@ a.map_balloon:active{
   background: url('/images/foo/stars1.png') left center;
   width: 0;
 }
+ul.auth{
+  text-align: right;
+  li{
+    list-style-type: none;
+    display: inline-block;
+    color: white;
+    a{
+      color: white;
+    }
+  }
+}
 

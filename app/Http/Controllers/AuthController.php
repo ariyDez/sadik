@@ -129,7 +129,7 @@ class AuthController extends Controller
             {
                 $m->from('noreply@mysite.ru', 'LaravelSite');
                 $m->to($sentuser->email)->subject('Активация аккаунта');
-                mail($sentuser->email, 'Activation', "Для активации аккаунта пройдите по <a href='http://test.laravel/activate/{$sentuser->getUserId()}/{$code}\") }}\">ссылке</a>");
+                mail($sentuser->email, 'Activation', "Для активации аккаунта пройдите по <a href='http://{$_SERVER['SERVER_NAME']}/activate/{$sentuser->getUserId()}/{$code}'>ссылке</a>");
             });
             if($sent === 0)
             {
@@ -192,10 +192,11 @@ class AuthController extends Controller
         $reminder = Reminder::exists($sentuser) ?: Reminder::create($sentuser);
         $code = $reminder->code;
 
-        $sent = Mail::send('mail.account_reminder', compact('sentuser', 'code'), function($m) use($sentuser)
+        $sent = Mail::send('mail.account_reminder', compact('sentuser', 'code'), function($m) use($sentuser,$code)
         {
             $m->from('noreply@mysite.com', 'SiteLaravel');
             $m->to($sentuser->email)->subject('Сброс пароля');
+            mail($sentuser->email, 'Сброс пароля', "Для создания нового пароля пройдите по <a href='http://{$_SERVER['SERVER_NAME']}/reset/{$sentuser->getUserId()}/{$code}'>ссылке</a>");
         });
 
         if($sent === 0)

@@ -7,6 +7,11 @@ Admin::model('App\Section')->title('Кружки')->display(function ()
 	$display->filters([
 
 	]);
+	// если не администратор, то скрыть учителей, которые не относятся к садикам данного пользователя
+	if(!Sentinel::inRole('admin'))
+		$display->apply(function($query){
+			$query->whereIn('garden_id', \App\User::find(Sentinel::getUser()->id)->gardens->lists('id')->toArray());
+		});
 	$display->columns([
 		Column::string('title')->label('Title'),
 		Column::image('image')->label('Image'),

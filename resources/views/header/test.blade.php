@@ -2,9 +2,19 @@
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
         <div class="row">
-            <div class="col-md-4">one</div>
-            <div class="col-md-4">two</div>
-            <div class="col-md-4">three</div>
+            <div class="col-md-4"></div>
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <ul class="auth">
+                    @if(Sentinel::check())
+                        <li>{{Sentinel::getUser()->first_name?:Sentinel::getUser()->email}}</li>
+                        <li><a href="/logout">Выход</a></li>
+                    @else
+                        <li><a href="/register">Регистрация</a></li>
+                        <li><a href="/login">Вход</a></li>
+                    @endif
+                </ul>
+            </div>
         </div>
     </div>
 </nav>

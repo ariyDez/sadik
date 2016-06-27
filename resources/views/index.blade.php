@@ -81,7 +81,19 @@
     </div>
     <div class="col-md-3">
         <img src="/images/foo/3.jpg" alt="" width="100%">
-        {{--<h1 class="line purple">Новости</h1>--}}
+        <h1 class="line purple">Новости</h1>
+        @foreach($articles as $article)
+            <div class="media">
+                <div class="media-left media-top">
+                    <a href="{{action('ArticleController@show', $article->id)}}">
+                        <img class="media-object" src="{{$article->image}}" alt="" width="100" height="100">
+                    </a>
+                </div>
+                <div class="media-body">
+                    <h4 class="media-heading">{{$article->title}}</h4>
+                </div>
+            </div>
+        @endforeach
         {{--@for($i=0;$i<3;$i++)--}}
             {{--<div class="media">--}}
                 {{--<div class="media-left media-top">--}}

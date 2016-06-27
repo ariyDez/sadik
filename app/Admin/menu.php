@@ -14,10 +14,12 @@ Admin::menu()->label('Садики')->icon('fa-tree')->items(function(){
     Admin::menu(App\Teacher::class)->label('Учителя')->icon('fa-female');
     Admin::menu(App\Section::class)->label('Кружки')->icon('fa-puzzle-piece');
     Admin::menu(App\Garden::class)->label('Садики')->icon('fa-child');
+    Admin::menu(App\Recall::class)->label('Отзывы')->icon('fa-comments');
 });
 
 Admin::menu()->label('Статьи')->icon('fa-book')->items(function(){
-    Admin::menu(App\Blog::class)->label('Блог')->icon('fa-tag');
+    Admin::menu(App\ArticleCategory::class)->label('Категория')->icon('fa-bars');
+    Admin::menu(App\Article::class)->label('Новости')->icon('fa-tag');
 });
 
 Admin::menu()->label('Мультимедиа')->icon('fa-folder')->items(function(){
@@ -29,7 +31,8 @@ Admin::menu()->label('Товары')->icon('fa-shopping-cart')->items(function()
     Admin::menu(App\GoodCategory::class)->label('Категории')->icon('fa-bars');
     Admin::menu(App\Color::class)->label('Цвета')->icon('fa-bars');
     Admin::menu(App\Good::class)->label('Товары')->icon('fa-money');
-    Admin::menu(App\Order::class)->label('Заказы')->icon('fa-usd');
+    if(Sentinel::check() && Sentinel::inRole('admin'))
+        Admin::menu(App\Order::class)->label('Заказы')->icon('fa-usd');
 });
 Admin::menu()->label('Конкурсы')->icon('fa-shopping-cart')->items(function(){
     Admin::menu(App\Competition::class)->label('Конкурсы')->icon('fa-trophy');

@@ -111,6 +111,8 @@ Route::group(['middleware' => ['web']], function () {
     Route::post('orders/set', 'OrderController@setOrder');
     
     Route::post('recall/add', 'RecallController@add');
+
+    Route::get('articles/{id}', 'ArticleController@show');
     //Route::get('join', ['middleware'=>'isadmin', 'uses' => 'PhotoCompetitionController@showJoin']);
 
     // only test
